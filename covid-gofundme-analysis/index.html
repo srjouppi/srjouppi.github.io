@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"> 
+        <title>"The Cost of COVID"</title>
+        <link rel="stylesheet" href="../style.css">
+        <style>
+            .full-size-image {
+                background: url('go-fund-me.png');
+                background-color: #4e96ff;
+                background-size: cover;
+                background-position-y: center;
+            }
+            h3{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size:1.2em;
+    color:#00dca6;
+}
+h4{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size:1.2em;
+    color:#4e96ff;
+}
+        </style>
+    </head>
+    <body>
+        <div class="full-size-image" id="riot-grrl-story">
+            <div class="text-container">
+                <h1>The Cost of COVID</h1>
+                <h3>An analysis of 3,500+ GoFundMe's created by and for people who have suffered from COVID.</h3>
+            </div>
+        </div>
+        <div class="text-container">
+           <p>I was looking through a hospital's list of standard charges when I saw a whole section dedicated to uninsured COVID patients. And one charge took my breath away.</p>
+           <p><h4>The cost of more than 4 days on a ventilator: $120,000.</h4></p>
+           <p>This made me wonder, how much was all of this costing those who become hospitalized with COVID? Using BeautifulSoup and Selenium I scraped over 5,000 campaigns from GoFundMe and narrowed that selection down to 3,500 that I am pretty confident are related to people who have been diagnosed with COVID.</p>
+           <p><h3>The average campaign was $15,500, and the average campaign specifically related to medical bills was $19,000</h3></p>
+            <hr />
+            <iframe title="Campaigns mentioning ventilators represent almost half of the fundraising goals" aria-label="Grouped Column Chart" id="datawrapper-chart-Ejptx" src="https://datawrapper.dwcdn.net/Ejptx/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="374"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+            </script>
+            <hr />
+            
+            <iframe title="Campaigns mentioning ventilators or funerals perform better on average  " aria-label="Bar Chart" id="datawrapper-chart-k1eAD" src="https://datawrapper.dwcdn.net/k1eAD/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="262"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+            </script>
+
+            <hr />
+            <p>Using regex, I found 159 mentions of days, months or weeks spent in the hospital. 18% of those had hospital stays greater than two months. The average stay was 43 days.</p>
+            <iframe title="COVID patients had a median hospital stay of 21 days" aria-label="Column Chart" id="datawrapper-chart-51laL" src="https://datawrapper.dwcdn.net/51laL/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="447"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+            </script>
+<iframe title="Asking for help: Two-word phrases most common in COVID-related campaigns" aria-label="Table" id="datawrapper-chart-DWndM" src="https://datawrapper.dwcdn.net/DWndM/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="1232"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+        </div>
+    </body>
+</html>
