@@ -29,10 +29,12 @@ h4{
     .row-container {
         flex-direction: column;
     }
-    .text-container {
-        padding-left: 1em;
-        padding-right: 1em;
-    }
+}
+@media (max-width: 600px) {
+ .text-container {
+   padding-left: 1em;
+   padding-right: 1em;
+ }
 }
 .row-container {
     display: flex;
@@ -390,15 +392,16 @@ h4{
         </div>
         <div class="row-container">
             <div class="column-container">
-            <p><h3><ul>
+            <p><h4><ul>
                 <li>The average campaign was $15,500.</li>
                 <li>The average medical bill campaign was $19,000.</li>
                 <li>Two out of every five mentioned a ventilator.</li>
-            </ul></h3></p>
+            </ul></h4></p>
             </div>
             <div class="column-container">
-                <iframe title="Campaigns mentioning ventilators represent almost half of the fundraising goals" aria-label="Multiple Pies" id="datawrapper-chart-QQtK2" src="https://datawrapper.dwcdn.net/QQtK2/2/" scrolling="no" frameborder="0" style="border: none;" width="576" height="391"></iframe>        </div>
-    
+                <iframe title="Campaigns mentioning ventilators represent almost half of the fundraising goals" aria-label="Multiple Pies" id="datawrapper-chart-QQtK2" src="https://datawrapper.dwcdn.net/QQtK2/2/" scrolling="no" frameborder="0" style="border: none;" width="100%" height="391"></iframe>
+            </div>
+        </div>
     <div class="text-container">
             <p>There are thousands of people behind these stories, and their stories are just a fraction of what people around the nation have experienced. I wanted to find a way to display the sentiment of these stories. Using NLTK, I extracted two-word phrases from the descriptions.</p>
 
