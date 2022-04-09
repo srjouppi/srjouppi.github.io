@@ -93,6 +93,7 @@ img {
 .full-size-image {
     padding: 10em 0;
     background-size: cover;
+    background-color:#B39FD1;
 }
 
 .full-size-image h1 {
