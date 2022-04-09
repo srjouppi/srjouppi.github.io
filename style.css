@@ -5,8 +5,51 @@ html, body {
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     line-height: 1.5em;
+    color: #1a1a1a;
 }
 
+@media (min-width: 768px) {
+    .row-container {
+        flex-direction: column;
+    }
+}
+@media (max-width: 600px) {
+ .text-container {
+   padding-left: 1em;
+   padding-right: 1em;
+
+ }
+ .menu{
+     text-align:center;
+     padding:0 0 0 0;
+     margin-bottom:none;
+ }
+}
+
+.dateline{
+    font-family:"Roboto Mono";
+    color:gray;
+    font-weight:300;
+    font-size:1em;
+}
+a{
+    color:#000;
+}
+
+a:hover{
+    color:#3c33d8
+}
+
+h1 {
+    line-height:1.2em;
+}
+h2{
+    font-family:"Inter",sans-serif;
+    font-size:1.3em;
+    font-weight:300;
+    line-height:1.2em;
+    color:#4a4a4a;
+}
 h3{
     font-family: 'Inter', sans-serif;
     font-weight: 700;
@@ -17,6 +60,7 @@ h4{
     font-family: 'Inter',sans-serif;
     font-weight: 700;
     font-size:1.2em;
+    margin-bottom:2em;
     color:#3c33d8;
 }
 hr {
@@ -27,13 +71,25 @@ hr {
 .text-container {
     max-width: 640px;
     margin: 0 auto;
+    margin-top:30px;
 }
 
 
 img {
-    max-width: 100%
+    max-width: 100%;
+    margin-top:10px;
+    margin-bottom:10px;
 }
-
+.menu {
+    padding:30px;
+    letter-spacing:.03em;
+}
+.menu a{
+    text-decoration:none;
+    text-transform:uppercase;
+    font-weight:300;
+    font-size:1.3em;
+}
 .full-size-image {
     padding: 10em 0;
     background-size: cover;
