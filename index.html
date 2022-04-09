@@ -2,54 +2,95 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Shelby Jouppi: Data Journalist & Multimedia Specialist">
+    <meta property="og:description" content="I'm a data journalist currently finishing my master's at Columbia University in New York. Here is a collection of my most recent work.">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="http://example.com/project-two/thumbnail.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@shelbyjouppi">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda&family=Inter:wght@300;400;700;800;&family=Open+Sans:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Roboto+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Source+Code+Pro:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet"> 
     <script src="https://kit.fontawesome.com/01d9812a13.js" crossorigin="anonymous"></script>
 
 <style>
+        .content p{
+          font-family:"Inter", sans-serif;
+          font-size:1.2em;
+          color:#1a1a1a;
+        }
         .content .title{
           font-family: "Open Sans", sans-serif;
           font-weight: 600;
         }
 
+        .content h2{
+          font-family: "Inter", sans-serif;
+          font-weight:800;
+          font-size:1.6em;
+          
+        }
+        hr {
+          margin-top: 4em;
+          margin-bottom: 4em;
+        }
         .content h3{
-          font-family: "Open Sans", sans-serif;
-          font-size: 1.3em;
+          font-family: "Inter", sans-serif;
+          font-weight:800;
+          font-size:1.3em;
         }
 
+        /* .block h3{
+          font-family: "Roboto Mono", monospace;
+          font-weight:700;
+        } */
         .content a{
           color: #000;
           text-decoration: underline;
           
         }
-
+        h2 a:link{
+          text-decoration:none;
+        }
         a:hover{
           color: #4F51DB;
         }
-        .content {
+        /* .content {
           font-family: "Open Sans", sans-serif;
           font-size: 1em;
-        }
+        } */
         .hero {
-          font-family: "Open Sans", sans-serif;
+          font-family: "Inter", sans-serif;
           font-weight:400;
           letter-spacing: .01em;
           color: #fff;
-          background-color:#F24452;
+          font-size: 1.2em;
+          background-color:#4F51DB;
           padding:0;
         }
         .hero .title {
-          font-family: "Bodoni Moda", serif;
+          font-family: "Inter", sans-serif;
           color: #fff;
-        } 
-        .hero .subtitle{
-          font-family:'Open Sans', sans-serif;
           font-weight: 300;
-          color: #fff;
-          letter-spacing: .05em;
+          text-transform:uppercase;
+        }
+        .hero .subtitle{
+          font-family:'Inter', sans-serif;
 
+          color: #fff;
+          font-size:1.2em;
+          letter-spacing: .05em;
+        }
+        .hero a{
+          font-weight:bold;
+          color:#fff;
+          background-color:#000;
+          margin:5px;
+          padding:2px;
+        }
+        .hero a:hover{
+          background-color:#898acb;
         }
         .highlight
 
@@ -67,27 +108,25 @@
           <h1 class="title">Shelby Jouppi</h1>
         </div>
         <div class="column is-two-fifths">
-          <p>Hello! I'm a data journalist and multimedia specialist, currently finishing up my master's at Columbia University in New York.</p>
-          <p>Before that, I was a <b>public radio reporter</b> at WDET Detroit,</p> 
-          <p>a <b>podcast producer</b> and a <b>graphic designer.</b></p>
-          <br/>
-          <button class="button is-white mb-4"><a href="https://github.com/srjouppi/srjouppi.github.io/blob/main/resume/jouppi-resume-mar22.pdf" target="_blank">View my resume</a></p></button>
+          <p>Hello! I'm a data journalist and multimedia specialist, currently finishing up my master's at Columbia University in New York.
+          Before that, I was a <b>public radio reporter</b> at WDET Detroit, 
+          a <b>podcast producer</b> and a <b>graphic designer.</b></p>
           <br/>
           <div class="block">
-            <a class ="button is-link" href="https://www.twitter.com/shelbyjouppi" target="_blank">
-              <span class="icon"><i class="fab fa-twitter fa-lg fa-fw"></i></span>
-              <span> Twitter</span></a> 
-            <a class="button is-link" href="https://www.github.com/srjouppi" target="_blank">
-              <span class="icon">
+            <a href="https://www.twitter.com/shelbyjouppi" target="_blank">
+              <!-- <span class="icon"><i class="fab fa-twitter fa-lg fa-fw"></i></span> -->
+              <span> twitter</span></a> 
+            <a href="https://www.github.com/srjouppi" target="_blank">
+              <!-- <span class="icon">
                 <i class="fab fa-github fa-lg fa-fw"></i>
-             </span>
-              <span> GitHub</span>
+             </span> -->
+              <span> github</span>
               </a>
-            <button class="button is-link">
+            <!-- <button class="button is-light">
               <span class="icon">
                 <i class="fas fa-envelope fa-lg fa-fw"></i>
              </span>
-              <span> hi (at) shelbyjouppi.work</span>
+              <span> hi (at) shelbyjouppi.work</span> -->
             </button>
           </div>
       </div>
@@ -103,7 +142,7 @@
 <div class="block">
   <div class="columns is-centered is-multiline content">
     <div class = "column is-two-fifths">
-  <h3><a href="/nyc-child-psychologists" target="_blank">Visualizing the child mental health care gap.</a></h3>
+  <h2><a href="/nyc-child-psychologists" target="_blank">Visualizing the child mental health care gap</a></h2>
   <p>There are nearly 1.3 million children who rely on Medicaid for health coverage in New York City. I wanted to know, how many child psychologists are accessible to them?</p>
   <p><a href="https://github.com/srjouppi/nyc-child-psychologists-scraper" target="_blank">I created a scraper</a> to cross reference Medicaid provider codes with the Centers for Medicare and Medicaid Services' NPI Provider Lookup tool to figure out who specialized in treating children.</p>
   <p>I visualized the results with a combination of handmade illustrations, ai2html and d3 to create this <a href="https://srjouppi.github.io/nyc-child-psychologists" target="_blank">scrollytelling.</a></p>
@@ -122,8 +161,8 @@
 </div>
 </div>
 </div>
-<br/>
 
+<hr/>
 
 <!-- Auto Scraper Image -->
         <div class="block">
@@ -137,7 +176,7 @@
 <!-- Auto Scraper Text -->
 
             <div class = "column is-two-fifths">
-              <h3>&#x1F3ED; <a href="https://github.com/srjouppi/michigan-air-polluters-dataset-map" target="_blank">Creating a living dataset of Michigan air pollution records</a></h3>
+              <h2>&#x1F3ED; <a href="https://github.com/srjouppi/michigan-air-polluters-dataset-map" target="_blank">Creating a living dataset of Michigan air pollution records</a></h2>
               <p>For my final Data & Databases project, I scraped 18,000+ pdfs from the Michigan Department of Environment, Great Lakes and Energy to create a searchable dataset of air pollution records by type of document <b>(i.e. violation notice, compliance evaluation, stack test report)</b>, date, company, county, zip code and address.</p>
               <p>&#128269; <a href="https://github.com/srjouppi/michigan-egle-database-auto-scraper" target="_blank">My auto-scraper</a> searches the Michigan database daily for new documents and adds them to existing datasets.</p>
               <p>&#x1F4CD; I created an <a href="https://srjouppi.github.io/michigan-air-polluters-dataset-map/" target="_blank">interactive map</a> of total violations by zip code and included basic demographic information from the Census Bureau.</p>
@@ -150,12 +189,13 @@
             </div>
           </div>
         </div>
-        <br/>
+
+        <hr/>
 <!-- Cost of COVID Text -->
       <div class="block">
         <div class="columns is-centered is-multiline content">
         <div class = 'column is-two-fifths'>
-          <h3><a href="covid-gofundme-analysis/" target="_blank">The Cost of COVID</a></h3>
+          <h2><a href="covid-gofundme-analysis/" target="_blank">The Cost of COVID</a></h2>
           <p>As part of the Data Studio course at Columbia University, I scraped 5,000+ GoFundMe campaigns and conducted text and statistical analysis to try to capture the cost of a severe COVID diganosis.</p>
           <p>For this story, I created a custom responsive chart using plotnine (ggplot), Adobe llustrator and ai2html.</p>
           <p><a href="https://github.com/srjouppi/covid-gofundme-scraping-analysis" target="_blank">View on GitHub >></a></p>
@@ -176,7 +216,8 @@
       </div>
     </div>
   </div>
-  <br/>
+
+  <hr/>
 
 <!-- Colorado Parks Image -->
       <div class="content">
@@ -188,7 +229,7 @@
 
 <!-- Colorado Parks Text -->
 
-              <h3><a href="colorado-parks-mobility/" target="_blank">Analyzing Colorado's park mobility</a></h3>
+              <h2><a href="colorado-parks-mobility/" target="_blank">Analyzing Colorado's park mobility</a></h2>
               <p>As part of the Data Studio course at Columbia University, I analyzed Google's COVID-19 Mobility Data, Google search trends and EPA air pollution data to tell the story of how Denver residents are taking advantage of local parks.</p>
               <p><a href="https://github.com/srjouppi/colorado-parks-mobility-analysis" target="_blank">View on GitHub >></a></p>
               <div class="tags">
@@ -205,7 +246,7 @@
 
 <!-- Ukrainian Schools Text -->
 
-    <h3><a href="https://columbianewsservice.com/2021/12/08/in-new-yorks-east-village-young-ukrainians-hold-onto-their-culture/" target="_blank">Community Reporting: "In New York’s East Village, Young Ukrainians Hold Onto Their Culture"</a></h3>
+    <h2><a href="https://columbianewsservice.com/2021/12/08/in-new-yorks-east-village-young-ukrainians-hold-onto-their-culture/" target="_blank">Community Reporting: "In New York’s East Village, Young Ukrainians Hold Onto Their Culture"</a></h2>
     <p>I spent eight weeks in the fall reporting on New York's Ukrainian community. This story, about a decades-long effort to pass the country's language and cultural heritage on to the next generation, was published in the Columbia News Service in December 2021.</p>
     <div class="tags">
       <span class="tag is-dark is-light">Writing</span>
@@ -221,7 +262,7 @@
 
 <!-- Charts Text -->
 
-    <h3><a href="charts-practice/" target="_blank">Data Visualization Classwork</a></h3>
+    <h2><a href="charts-practice/" target="_blank">Data Visualization Classwork</a></h2>
     <p>View this collection of original visualzations and reproductions as part of my coursework at Columbia.</p>
     <div class="tags">
       <span class="tag is-danger is-light">python/plotnine</span>
@@ -235,28 +276,23 @@
   </section>
   
 <!-- Skills & Experience Header -->
-  <section class="hero is-link">
+  <section class="hero is-black">
     <a name="resume"></a>
     <div class="hero-body">
       <div class="container has-text-centered">
-        <p class="title">
-          Skills & Experience
-          <br/>
-        </p>
-        <div class="block">
-          <button class="button is-white"><a href="https://www.shelbyjouppi.work" target="_blank">View my previous work >></a></button>
-        </div>
+        <b><u>
+          <a href="https://www.shelbyjouppi.work" target="_blank">Previous Work</a></u>&nbsp;&nbsp; | &nbsp;&nbsp;<u><a href="https://github.com/srjouppi/srjouppi.github.io/blob/main/resume/jouppi-resume-mar22.pdf" target="_blank">Resume</a></u>
+        </b>
       </div>
     </div>
   </section>
-
 <!-- Skills & Experience Body-->
-  <secton class ="section">
+  <!-- <secton class ="section">
     <div class = "container">
-      <div class = "columns is-centered is-multiline content">
+      <div class = "columns is-centered is-multiline content"> -->
 
 <!-- Skills & Education Column-->
-        <div class="column is-one-third">
+        <!-- <div class="column is-one-third">
           <div class="box">
             <h3>&#x2728; Skills</h3>
             <div class="block">
@@ -296,10 +332,10 @@
               <p><i>magna cum laude, 2013</i></p>
             </div>
           </div>
-        </div>
+        </div> -->
 
 <!-- Experience Column-->
-        <div class ="column is-half">
+        <!-- <div class ="column is-half">
           <div class="block">
             <h3>Data Journalism Graduate Student, Columbia University</h3>
             <p><i>Aug. 2021 - expected Aug. 2022</i></p>
@@ -325,6 +361,6 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   </body>
 </html>
