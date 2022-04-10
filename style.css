@@ -94,9 +94,17 @@ img {
     font-weight:300;
     font-size:1.3em;
 }
+.footer {
+    padding:30px;
+    height:10vh;
+    letter-spacing:.03em;
+    background-color:#000;
+    margin:0 auto;
+
+}
 .full-size-image {
     padding: 5em 0;
-    height:40vh;
+    height:30vh;
     background-size: cover;
     background-color:#B39FD1;
 }
