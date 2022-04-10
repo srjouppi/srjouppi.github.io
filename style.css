@@ -7,8 +7,8 @@ html, body {
 
 p{
     font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    line-height: 1.5em;
+    font-weight: 400;
+    line-height: 1.7em;
     font-size:1.1em;
     color: #1a1a1a;
 }
@@ -95,17 +95,35 @@ img {
     font-size:1.3em;
 }
 .full-size-image {
-    padding: 10em 0;
+    padding: 5em 0;
+    height:40vh;
     background-size: cover;
     background-color:#B39FD1;
 }
 
-.full-size-image {
-    padding: 10em 0;
-    background-size: cover;
+.header-box{
+    padding:5em 0;
+    height:20vh;
     background-color:#B39FD1;
 }
 
+.header-box h1 {
+    color: white;
+    text-shadow: 0 0 40px black;
+    font-size: 2.5em;
+    font-family: 'Inter', sans-serif;
+    line-height:1em;
+
+}
+
+.header-box h3 {
+    color: black;
+    background-color: white;
+    font-size: 1.2em;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    padding:8px;
+}
 .full-size-image h1 {
     color: white;
     text-shadow: 0 0 40px black;
@@ -122,16 +140,4 @@ img {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     padding:8px;
-}
-.plot-holder .caption {
-    color: grey;
-    text-align: right;
-}
-
-.plot-holder h3 {
-    font-size: 2em;
-}
-
-.plot-holder .subtitle {
-    font-weight: bold;
 }
