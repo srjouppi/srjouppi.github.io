@@ -23,6 +23,11 @@ p{
    padding-right: 1em;
 
  }
+ .chart-container {
+    padding-left: 1em;
+    padding-right: 1em;
+ 
+  }
  .menu{
      text-align:center;
      padding:0 0 0 0;
@@ -65,7 +70,7 @@ h4{
     font-weight: 700;
     font-size:1.2em;
     margin-bottom:2em;
-    color:#3c33d8;
+    color:#4F51DB;
 }
 hr {
     border-top: .5px;
@@ -78,6 +83,11 @@ hr {
     margin-top:30px;
 }
 
+.chart-container {
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top:30px;
+}
 
 img {
     max-width: 100%;
