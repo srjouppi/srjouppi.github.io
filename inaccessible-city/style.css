@@ -32,7 +32,8 @@ h2 {
     font-size: 14pt;
     font-style: italic;
     font-family: 'Inter', sans-serif;
-    color: #BBB;
+    font-weight: lighter;
+    color: rgb(124, 124, 124);
 }
 
 h3 {
