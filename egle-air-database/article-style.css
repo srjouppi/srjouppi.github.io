@@ -48,17 +48,31 @@ a:hover{
  .text-container {
    padding-left: 1em;
    padding-right: 1em;
+   margin-top:15px;
 
  }
  .chart-container {
     padding-left: 1em;
     padding-right: 1em;
+    margin-bottom: 20px;
  
   }
  .menu{
      text-align:center;
      padding:0 0 0 0;
      margin-bottom:20px;
+ }
+ .back-article{
+    text-align:center;
+    padding-left:1em;
+    padding-right:1em;
+    max-width:100%;
+ }
+ .forward-article{
+    text-align:center;
+    padding-left:1em;
+    padding-right:1em;
+    max-width:100%;
  }
 }
 .menu {
@@ -270,3 +284,23 @@ vertical-align:center;
     ul {
       line-height: 1.7em;
     }
+    .bottom-nav{
+        max-width:900px;
+        display: flex;
+        justify-content: space-between;
+        margin:0 auto;
+        margin-top: 60px;
+        margin-bottom: 80px;
+    }
+    .back-article{
+        max-width:300px;
+        display:inline-block;
+        text-align:left;
+        padding-left:1em;
+    }
+    .forward-article{
+        max-width:300px;
+        display:inline-block;
+        text-align:right;
+        padding-right:1em;
+        }
