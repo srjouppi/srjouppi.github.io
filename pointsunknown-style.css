@@ -34,12 +34,28 @@ p{
      margin-bottom:none;
  }
 }
-
+.note {
+    font-style:italic;
+}
 .dateline{
     font-family:"Roboto Mono";
     color:gray;
     font-weight:300;
     font-size:1em;
+}
+a.highlight-small{
+    background-color:#FABB16;
+    color:black;
+    font-weight:bold;
+    font-size:small;
+    font-family: "Roboto Mono",monospace;
+    text-decoration:none;
+}
+a.highlight-small:hover{
+    background-color:#FAF8D7;
+    color:black;
+    font-weight:bold;
+    text-decoration:none;
 }
 a.highlight{
     background-color:#FABB16;
