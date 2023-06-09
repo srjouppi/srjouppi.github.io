@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>Michigan Air Polluters: Violations</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- 
+THESE ARE CALLS TO DIFFERENT EXTERNAL FILES
+MAPBOX HAS A JAVASCRIPT LIBRARY THAT YOU NEED
+THE NEXT IS A CSS FILE FOR THE MAP
+AND THE FINAL ONE IS THE LIBRARY FOR JQUERY, WHICH I USE FOR THE PULLDOWN MENU.
+ -->
+
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/Turf.js/5.1.5/turf.min.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<link rel="stylesheet" href="../violation-map.css">
+
+	<!-- 
+THESE ARE CSS STYLES WHAT YOU SHOULD FREELY PLAY WITH
+THE STYLES THAT BEGIN WITH # RELATE TO IDS, 
+THE ONES THAT BEGIN WITH . RELATE TO CLASSES
+WHEN YOU GOT EVERYTHING WORKING YOU CAN PLAY WITH THESE AND ADD TO THESE 
+TO MAKE YOUR FONTS AND LAYOUTS NICE AND LOVELY
+ -->
+
+	<style>
+		::-webkit-scrollbar {
+			width: 0px;
+			/* remove scrollbar space */
+			background: transparent;
+			/* optional: just make scrollbar invisible */
+		}
+
+		.info {
+			padding: 6px 8px;
+			font: 14px/16px Arial, Helvetica, sans-serif;
+			background: white;
+			background: rgba(255, 255, 255, 0.8);
+			box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+			border-radius: 5px;
+		}
+
+		.info h4 {
+			margin: 0 0 5px;
+			color: #777;
+		}
+
+		.legend {
+			text-align: left;
+			line-height: 18px;
+			color: #555;
+		}
+
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+			opacity: 0.7;
+		}
+
+		body {
+			display: flex;
+		}
+
+		#select-menu {
+			position: absolute;
+			left: 50px;
+			top: 10px;
+			z-index: 10;
+		}
+
+		#map {
+			flex: 2;
+			height: calc(100vh - 30px);
+		}
+		#articlePlace {
+			flex: 1;
+			height: calc(100vh - 30px);
+			overflow: scroll;
+			/* margin: 20px; */
+		}
+
+		#company-profile{
+			width: auto;
+			padding:25px;
+			background-color:#101010;
+			margin-bottom: 25px;
+		}
+
+		#company-violations{
+			width: auto;
+			padding:25px;
+		}
+		#color-scale {
+			position: absolute;
+			bottom: 40px;
+			right: 10px;
+			z-index: 10;
+			background: rgba(255, 255, 255, 0.75);
+			padding: 5px;
+		}
+
+		#color-scale > div span {
+			display: inline-block;
+			height: 25px;
+			width: 20px;
+			margin-right: 5px;
+			vertical-align: middle;
+		}
+
+		#color-scale p {
+			font-weight: bold;
+			padding-bottom: 5px;
+			margin: 0;
+		}
+		.dot1 {
+		height: 10px;
+		width: 10px;
+		background-color: grey;
+		border-color: black;
+		border-width:1px;
+		border-radius: 50%;
+		display: inline-block;
+		}
+		.dot2 {
+		height: 30px;
+		width: 30px;
+		background-color: grey;
+		border-color: black;
+		border-width:1px;
+		border-radius: 50%;
+		display: inline-block;
+		}
+.legend2 
+{
+	font: 1em/1.5em 'Open Sans', sans-serif;
+	padding: 1em 1em 1em 1em;
+	right: 10px;
+	z-index: 100;
+	opacity: 100%;
+	position: absolute;
+	bottom: 40px;
+	right: 10px;
+}
+.legend2 h4 {
+	margin: 0 0 0px;
+	opacity: 100%
+}
+.legend2 p {
+	padding-top: 0px;
+	margin-top: 0px;
+}
+.legend2 div span {
+	border-radius: 50%;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	margin: auto;
+	display: inline-block;
+	height: 5px;
+	margin-top: 0px;
+	margin-right: 10px;
+	margin-left: 10px;
+	width: 5px;
+	opacity: 100%
+}
+
+	</style>
+
+</head>
+<!-- THE BODY OF THE HTML BEGINS HERE -->
+
+<body>
+
+	<!-- 
+THE DIVS BELOW ARE SUPER IMPORTANT:
+THEY ARE WHERE THE MAP WILL GO, AND YOUR ARTICLE TEXT WILL GO
+YOU WILL CERTAINLY WANT TO STYLE THESE, BOTH THEIR PLACEMENT AND CONTENT 
+THE MAP SHOULD BE EMPTY.
+WHATEVER INTRODUCTORY TEXT YOU WANT CAN GO INTO THE ARTICLEPLACE DIV
+ -->
+
+
+	<div id='map'>
+		<div id="dropdown">
+			<select id="select-menu">
+				<option value="">All Groups</option>
+			</select>
+		</div>
+		<!-- <div id='legend2'>
+			<h4>Violations</h4>
+            <p><em>Click on facilities to get detailed information and links to pdf violation notices</em></p>
+            <div><span style="background-color: #fef0d3"></span>&#8594;<span style="background-color: #ff4400; height:20px; width:20px"></span> 35 violations</div>
+		</div> -->
+
+	</div>
+	<div id='articlePlace'><span style='font-family:arial'><h1>Violation notices issued to sources of air pollution by the Michigan Department of Environment</h1>
+		<h2>2013 - 2021</h2>
+		<hr/>
+		<input type='text' id='search' placeholder='Enter an address' />
+		<p>Over the past 9 years, the Michigan Department of Environment, Great Lakes and Energy (EGLE) has issued almost 2,500 violations to individuals and companies throughout the state. This could be due to issues like emissions violations, record-keeping violations or unauthorized equipment use. This map breaks down the total number of violation notices issued by zip code. You can click on each zip code to get the following:</p>
+		<ul>
+			<li>Population</li>
+			<li>Poverty Level</li>
+			<li>Race</li>
+			<li>Number of sources of air pollution</li>
+			<li>Number of "Hazardous Air Pollutants" emitted by all sources</li>
+		  </ul>
+		<br/>
+		<br/>
+		<p style = 'color:#777'><i>Data Sources:</i></p>
+			<ul style = 'color:#777'>
+				<li><i>Violation notices scraped from https://www.deq.state.mi.us/aps/downloads/SRN/</i></li>
+				<li><i>Census data from the 2019 American Community Survey via censusreporter.org</i></li>
+				<li><i>Hazardous Air Pollutant data from the EPA's 2017 National Emissions Inventory</i></li>
+			</ul></span></div>
+	<!-- 
+INSIDE THE MAP DIV  ARE TWO THINGS, THE DROP-DOWN MENU AND THE RATING LEGEND
+
+
+DROP-DOWN MENU: THE ID select–menu IS USED BY THE JQUERY FUNCTION WAY DOWN AT THE BOTTOM
+THIS HTML SETS UP THE PULLDOWN MENU
+IF YOU HAVE MULTIPLE GROUPS THE JQUERY AT THE BOTTOM 
+WILL UPDATE THE SELECT MENU FOR YOU
+
+RATING: THIS IS A NEW INNOVATION BY SOMA. I WILL GO OVER IT NEXT WEEK, 
+IT SHOULD BE THE LAST THING YOU DEAL WITH. 
+IT IS THERE FOR YOU TO USE THE NEW 'RATING' PROPERTY
+TO AUTOMATICALLY SET A COLOR RANGE. 
+IT IS NOT WORKING IN THIS EXAMPLE.
+ -->
+
+	<!-- 
+THIS IS WHERE THE BROWSER LOADS IN YOUR GEOJSON INFORMATION
+MAKING IT A JAVASCRIPT FILE .js, RATHER THAN A GEOJSON FILE
+ALLOWS YOU TO LOAD IT LOCALLY WITHOUT DEALING WITH SETTING UP SERVERS ON YOUR MACHINE.
+ -->
+
+	<script type="text/javascript" src="geo-data.js"></script>
+
+	<!-- 
+HERE BEGINS ALL THE SCRIPT THAT SETS UP THE MAP 
+ALL THE COMMENTS FROM HERE WE'LL BE IN JAVASCRIPT COMMENTS //
+ -->
+ <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js'></script>
+
+
+	<script type="text/javascript">
+// these seven lines maybe the only lines you need to edit
+// you should put in your own access token
+// you can change the style of the tiles
+// as well as the center and the zoom
+
+// but note that way down below this is a method that auto centers and zooms:
+// map.fitBounds(turf.bbox(infoData), { padding: 120, linear: true })
+//If you want to control the centering and zoom yourself, comment out that line.
+
+
+
+		mapboxgl.accessToken = 'pk.eyJ1IjoiZGF0YW1hbWExMTYiLCJhIjoiY2xncXMxM21rMTFhZDNybGh6cmE4YjZreCJ9.XPLngEtaW3V0Xd2vBDaxMQ';
+
+		var map = new mapboxgl.Map({
+			container: 'map', // HTML container ID
+			style: 'mapbox://styles/mapbox/light-v10', // style URL
+			center: [-83.6136, 43.7833], // starting position as [lng, lat]
+			zoom: 13
+		});
+		map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+
+		// var geocoder = new MapboxGeocoder({
+		// accessToken: mapboxgl.accessToken,
+		// mapboxgl: mapboxgl
+		// });
+
+		// map.addControl(geocoder);
+
+		// document.getElementById('search').addEventListener('keydown', function(e) {
+		// if (e.keyCode === 13) { // if enter key is pressed
+		// 	var query = document.getElementById('search').value;
+		// 	geocoder.query(query);
+		// }
+		// });
+
+// all of this JavaScript manages what's displayed on hover and click
+
+		var popup = new mapboxgl.Popup({ closeButton: false, closeOnClick: false });
+
+		let hoverCurrentId = null
+		var datalayer;
+
+		function updateArticle(e) {
+			let feature = e.features[0]
+			document.getElementById("articlePlace").innerHTML = feature.properties.article
+		}
+
+		function startHover(e) {
+			let feature = e.features[0]
+
+			if (hoverCurrentId) {
+				map.setFeatureState({ source: 'datalayer', id: hoverCurrentId }, { hover: false });
+			}
+			hoverCurrentId = feature.id
+			map.setFeatureState({ source: 'datalayer', id: hoverCurrentId }, { hover: true });
+		}
+
+		function stopHover(e) {
+			if (hoverCurrentId) {
+				map.setFeatureState({ source: 'datalayer', id: hoverCurrentId }, { hover: false });
+			}
+			hoverCurrentId = null;
+		}
+
+		function drawPopup(e) {
+			let feature = e.features[0]
+			map.getCanvas().style.cursor = 'pointer';
+
+			var coordinates = e.lngLat;//turf.centerOfMass(feature);
+			var headline = feature.properties.headline;
+			var violationCount = feature.properties.violationCount
+
+
+
+			while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+				coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+			}
+
+			popup.setLngLat(coordinates)
+				.setHTML(`<h4>${headline}</h4><h5>Violations: ${violationCount}</h5`)
+				.addTo(map);
+		}
+
+		function removePopup(e) {
+			map.getCanvas().style.cursor = '';
+			popup.remove();
+		}
+
+		map.on('load', function () {
+			for (let i = 0; i < infoData.features.length; i++) {
+				infoData.features[i]['id'] = i + 1
+			}
+
+// the JavaScript below sets up the styles of the colors based on your properties
+// color, radius, and rating
+
+// Soma's explanation of 'paint': https://gist.github.com/jsoma/c91cfa7a1f4f8346d95ac2a907f0cb0c
+
+			datalayer = map.addLayer({
+				id: "datalayer",
+				type: "circle",
+				source: {
+					type: "geojson",
+					data: infoData,
+				},
+				paint: {
+					'circle-radius': [
+						'interpolate',
+						['linear'],
+						['get', 'violationCount'],
+						1, 6,  // When the value is 0, the radius will be 5 pixels
+						5, 10,
+						15, 18, // When the value is 100, the radius will be 20 pixels
+						35, 23
+						],
+					'circle-color': ['get', 'color'],
+					'circle-opacity': .6,
+					'circle-stroke-color': 'black',  // Outline color
+   				    'circle-stroke-width': .7, // Outline thickness
+					'circle-stroke-opacity': .8
+
+					// 'fill-color': [
+					// 	'interpolate', ['linear'],
+					// 	["to-number", ["get", "rating"]],  
+					// 	1, "#e7e7d0", 
+					// 	7, "#9f373c",
+					// 	8, "#69042B" 
+					// ],
+
+					// 'circle-outline-color': 'white'
+					// 'circle-opacity': [
+					// 	'case',
+					// 	['boolean', ['feature-state', 'hover'], false],
+					// 	1,
+
+					// 	0.9
+					// ]
+				}
+			});
+
+// these functions control Mouse actions
+// they make the pop-up headline or update the article text
+			// When we move the mouse over, draw the popup and change the hover style
+			map.on('mousemove', 'datalayer', function (e) {
+				startHover(e)
+				drawPopup(e)
+			});
+
+			// When we move the mouse away from a point, turn off the hovering and popup
+			map.on('mouseleave', 'datalayer', function (e) {
+				stopHover(e)
+				removePopup(e)
+			});
+
+			// When we click, update the article (the right-hand side)
+			map.on('click', 'datalayer', function (e) {
+				updateArticle(e)
+			})
+// very important!! this automatically centers the map and zooms it
+			map.fitBounds(turf.bbox(infoData), { padding: 0, linear: true })
+		})
+
+
+	</script>
+	<script>
+	// this part is J query / with some mapbox JavaScript
+	// it changes what is displayed based on the pulldown menu
+
+		var groupsObj = {};
+
+		$(document).ready(function () {
+			infoData.features.forEach(function (feature) {
+				groupsObj[feature.properties.group_id] = feature.properties.group_name;
+			})
+
+			$.each(groupsObj, function (key, value) {
+				$('#select-menu')
+					.append($("<option></option>")
+						.attr("value", value)
+						.text(value));
+			});
+
+			$('#select-menu').change(function () {
+				var selectedGroup = $('#select-menu').val();
+
+				if (!selectedGroup) {
+					map.setFilter('datalayer', null);
+				} else {
+					map.setFilter('datalayer', ['==', ['get', 'group_name'], selectedGroup]);
+				}
+			});
+		});
+	</script>
+
+
+</body>
+
+</html>
