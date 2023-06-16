@@ -9,6 +9,22 @@
 	gtag('js', new Date());
 
 	gtag('config', 'G-8VGH3JMVFG');
+
+    function switchImage() {
+      var imageElement = document.getElementById('myImage');
+      var windowWidth = window.innerWidth;
+
+      if (windowWidth < 750) {
+        imageElement.src = 'https://github.com/srjouppi/srjouppi.github.io/blob/main/images/egle-database-before-after-tall.png?raw=true';
+      } else {
+        imageElement.src = 'https://github.com/srjouppi/srjouppi.github.io/blob/main/images/egle-database-before-after.png?raw=true';
+      }
+
+      imageElement.style.display = 'block';
+    }
+
+    window.addEventListener('load', switchImage);
+    window.addEventListener('resize', switchImage);  
 	</script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,6 +42,7 @@
 	<link rel="stylesheet" href="article-style.css">
     <title>Michigan EGLE Air Quality Document Database</title>
     <style>
+	
       .bold-yellow {
           font-weight: bold;
           color:#daaa27;
@@ -110,7 +127,8 @@
 </div>
 
 <div class="chart-container">
-	<img src="https://github.com/srjouppi/srjouppi.github.io/blob/main/images/egle-database-before-after.png?raw=true"/>
+	<img id="myImage" class="image" alt="Responsive Image">
+	<!-- <img src="https://github.com/srjouppi/srjouppi.github.io/blob/main/images/egle-database-before-after.png?raw=true"/> -->
 </div>
 <div class="text-container">
 	<h4>&#10024 Products</h4>
@@ -220,7 +238,7 @@
 		<p>Many thanks to my generous professors <a href="http://floatingmedia.com/" target="_blank">Jon Thirkhield</a> and <a href="https://jonathansoma.com/" target="_blank">Jonathan Soma</a> who shared their code and helped me troubleshoot along the way.</p>
 		<p>Happy searching! And don't hesitate to reach out.</p>
 		<a name="questions"></a>
-		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc3aH074FNC2S7QchsKSWnQZ-zioRm1bl_Ws56U8NQ2P6qEcA/viewform?embedded=true" width="100%" height="920px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+		<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc3aH074FNC2S7QchsKSWnQZ-zioRm1bl_Ws56U8NQ2P6qEcA/viewform?embedded=true" width="100%" height="960px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 		<br/>
 		<br/>
 		<br/>
