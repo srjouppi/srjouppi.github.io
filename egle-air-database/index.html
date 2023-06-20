@@ -172,7 +172,7 @@
 		they publish.</p>
 
 	<p> EGLE has also said that their online database is not necessarily comprehensive. There may be missing documents or other types of reports
-		not uploaded for certain reasons. For any questions about the specific sourcesor documents in this dataset, contact EGLE's public information office.</p>
+		not uploaded for certain reasons. For any questions about the specific sources or documents in this dataset, contact EGLE's public information office.</p>
 
 	<h3>Columns in the dataset:</h3>
 	
@@ -228,14 +228,25 @@
 
 		<a name="key"></a>
 		<h3>Document type code key</h3>
-		<p>I created <a href="https://github.com/srjouppi/michigan-egle-database-auto-scraper/blob/main/EGLE-AQD-document-code-key.xlsx", target="_blank">the key</a> manually in September 2022 by reviewing examples of each document type and using the language in the document to come up with the key. Please report errors to shelbyjouppi (at) gmail.com. Michigan EGLE should be consulted with any questions about specific documents or naming conventions.</p>
-		<p>Caveat: When a digit is included in the code (ie VN2), it is not always used in a uniform way. For simplicity's sake, I titled these 1st, 2nd, 3rd, etc. However these document should be reviewed in context with scrutiny and not necessarily used in aggregates.</p>
+		<p>I created <a href="https://github.com/srjouppi/michigan-egle-database-auto-scraper/blob/main/EGLE-AQD-document-code-key.xlsx", target="_blank">the key</a> manually in September 2022 by 
+			reviewing examples of each document type and using the language in the document to come up with the key. 
+			Please report errors <a href="#questions">to the form below.</a> Michigan EGLE should be consulted with any 
+			questions about specific documents or naming conventions.</p>
+		<p>Caveat: When a digit is included in the code (ie VN2), it is not always used in a uniform way. 
+			For simplicity's sake, I titled these 1st, 2nd, 3rd, etc. However these document should be reviewed in 
+			context with scrutiny and not necessarily used in aggregates.</p>
 
 		<h3>Methodology</h3>
-		<p>Using Beautiful Soup, I scraped over 18,000 documents for these sources of air pollution. With Regex, I extracted the urls of the documents as well as data from the documents' names, which were all structured predicably as such:</p>
+		<p>Using Beautiful Soup, I scraped over 18,000 documents for these sources of air pollution. 
+			With Regex, I extracted the urls of the documents as well as data from the documents' names, 
+			which were all structured predicably as such:</p>
 		<h5><span class="bold-blue">{SOURCE ID}</span>_<span class="bold-yellow">{TYPE OF DOCUMENT}</span>_<span class="bold-red">{DATE ISSUED}</span>.pdf</h5>
-		<p>I joined the scraped data with identifing information (name, location, source type) from the master list. I also created a document code key (EGLE-AQD-document-code-key.xlsx) manually so users can easily see what kind of document they are looking at.</p>
-		<p>The autoscraper uses Github Actions, Beautiful Soup and Regex search the database for directories that have new updates, go into those folders and search for URLs that are not already in the dataset. It also uses the Python library pygsheets to
+		<p>I joined the scraped data with identifing information (name, location, source type) from the master list. 
+			I also created a document code key (EGLE-AQD-document-code-key.xlsx) manually so users can easily see what 
+			kind of document they are looking at.</p>
+		<p>The autoscraper uses Github Actions, Beautiful Soup and Regex search the database for directories that have
+			 new updates, go into those folders and search for URLs that are not already in the dataset. It also uses 
+			 the Python library pygsheets to
 	       publish the updated Google Sheets.</p>
 		<p><a class="bold-blue" href="https://github.com/srjouppi/michigan-egle-database-auto-scraper" target="_blank">View the code</a></p>
 		<h3>Gratitude</h3>
