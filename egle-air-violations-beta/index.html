@@ -18,7 +18,7 @@ AND THE FINAL ONE IS THE LIBRARY FOR JQUERY, WHICH I USE FOR THE PULLDOWN MENU.
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/Turf.js/5.1.5/turf.min.js'></script>
 	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<link rel="stylesheet" href="https://shelbyjouppi.com/egle-air-violations-beta/violation-map.css">
+	<link rel="stylesheet" href="../violation-map.css">
 
 	<!-- 
 THESE ARE CSS STYLES WHAT YOU SHOULD FREELY PLAY WITH
@@ -200,11 +200,26 @@ WHATEVER INTRODUCTORY TEXT YOU WANT CAN GO INTO THE ARTICLEPLACE DIV
 		</div> -->
 
 	</div>
-	<div id='articlePlace'>
-		<div id="company-profile">
-		<p style="color:white;">This is a beta version of a map of air pollution violations from 2018 to the present. The data and interactivity are very flawed and this is intended for exploratory purposes only.</p></div>
-		<img src="https://raw.githubusercontent.com/srjouppi/srjouppi.github.io/93052fd8c6caf15dd1c8d8cfba3afe9ec70abd3b/egle-air-violations-beta/violation-map-key.png" style="width:100%;height:auto"/>
-	</div>
+	<div id='articlePlace'><span style='font-family:arial'><h1>Violation notices issued to sources of air pollution by the Michigan Department of Environment</h1>
+		<h2>2013 - 2021</h2>
+		<hr/>
+		<input type='text' id='search' placeholder='Enter an address' />
+		<p>Over the past 9 years, the Michigan Department of Environment, Great Lakes and Energy (EGLE) has issued almost 2,500 violations to individuals and companies throughout the state. This could be due to issues like emissions violations, record-keeping violations or unauthorized equipment use. This map breaks down the total number of violation notices issued by zip code. You can click on each zip code to get the following:</p>
+		<ul>
+			<li>Population</li>
+			<li>Poverty Level</li>
+			<li>Race</li>
+			<li>Number of sources of air pollution</li>
+			<li>Number of "Hazardous Air Pollutants" emitted by all sources</li>
+		  </ul>
+		<br/>
+		<br/>
+		<p style = 'color:#777'><i>Data Sources:</i></p>
+			<ul style = 'color:#777'>
+				<li><i>Violation notices scraped from https://www.deq.state.mi.us/aps/downloads/SRN/</i></li>
+				<li><i>Census data from the 2019 American Community Survey via censusreporter.org</i></li>
+				<li><i>Hazardous Air Pollutant data from the EPA's 2017 National Emissions Inventory</i></li>
+			</ul></span></div>
 	<!-- 
 INSIDE THE MAP DIV  ARE TWO THINGS, THE DROP-DOWN MENU AND THE RATING LEGEND
 
