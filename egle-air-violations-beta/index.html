@@ -18,7 +18,7 @@ AND THE FINAL ONE IS THE LIBRARY FOR JQUERY, WHICH I USE FOR THE PULLDOWN MENU.
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/Turf.js/5.1.5/turf.min.js'></script>
 	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<link rel="stylesheet" href="https://shelbyjouppi.com/egle-air-violations-beta/violation-map.css">
+	<link rel="stylesheet" href="violation-map.css">
 
 	<!-- 
 THESE ARE CSS STYLES WHAT YOU SHOULD FREELY PLAY WITH
@@ -29,6 +29,17 @@ TO MAKE YOUR FONTS AND LAYOUTS NICE AND LOVELY
  -->
 
 	<style>
+		.mapboxgl-popup-content {
+			border-width:1px !important;
+			border-style:solid !important;
+			border-color:#2E333F !important;
+			padding-left:10px !important;
+		}
+		.mapboxgl-ctrl-geocoder--input, .mapboxgl-ctrl-geocoder--suggestion-title, .mapboxgl-ctrl-geocoder--suggestion-address {
+			font-family: "Inter", sans-serif !important;
+			letter-spacing: normal !important;
+		}
+		
 		::-webkit-scrollbar {
 			width: 0px;
 			/* remove scrollbar space */
@@ -69,9 +80,14 @@ TO MAKE YOUR FONTS AND LAYOUTS NICE AND LOVELY
 		}
 
 		#select-menu {
+			border-width:2px;
+			border-style:solid;
+			border-color:#2E333F;
+			background-color:white;
+			font-family: 'Roboto Mono', monospace;
 			position: absolute;
 			left: 50px;
-			top: 10px;
+			top: 20px;
 			z-index: 10;
 		}
 
@@ -85,11 +101,10 @@ TO MAKE YOUR FONTS AND LAYOUTS NICE AND LOVELY
 			overflow: scroll;
 			/* margin: 20px; */
 		}
-
 		#company-profile{
 			width: auto;
 			padding:25px;
-			background-color:#101010;
+			background-color:#2E333F;
 			margin-bottom: 25px;
 		}
 
@@ -123,7 +138,7 @@ TO MAKE YOUR FONTS AND LAYOUTS NICE AND LOVELY
 		height: 10px;
 		width: 10px;
 		background-color: grey;
-		border-color: black;
+		border-color: #2E333F;
 		border-width:1px;
 		border-radius: 50%;
 		display: inline-block;
@@ -132,10 +147,13 @@ TO MAKE YOUR FONTS AND LAYOUTS NICE AND LOVELY
 		height: 30px;
 		width: 30px;
 		background-color: grey;
-		border-color: black;
+		border-color: #2E333F;
 		border-width:1px;
 		border-radius: 50%;
 		display: inline-block;
+		}
+		.dialogue-header {
+			background:#2E333F;
 		}
 .legend2 
 {
@@ -159,7 +177,7 @@ TO MAKE YOUR FONTS AND LAYOUTS NICE AND LOVELY
 .legend2 div span {
 	border-radius: 50%;
 	border-style: solid;
-	border-color: black;
+	border-color: #2E333F;
 	border-width: 1px;
 	margin: auto;
 	display: inline-block;
@@ -185,12 +203,13 @@ YOU WILL CERTAINLY WANT TO STYLE THESE, BOTH THEIR PLACEMENT AND CONTENT
 THE MAP SHOULD BE EMPTY.
 WHATEVER INTRODUCTORY TEXT YOU WANT CAN GO INTO THE ARTICLEPLACE DIV
  -->
-
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
 
 	<div id='map'>
 		<div id="dropdown">
 			<select id="select-menu">
-				<option value="">All Groups</option>
+				<option value="">All Sources</option>
 			</select>
 		</div>
 		<!-- <div id='legend2'>
@@ -203,6 +222,7 @@ WHATEVER INTRODUCTORY TEXT YOU WANT CAN GO INTO THE ARTICLEPLACE DIV
 	<div id='articlePlace'>
 		<div id="company-profile">
 		<p style="color:white;">This is a beta version of a map of air pollution violations from 2018 to the present. The data and interactivity are very flawed and this is intended for exploratory purposes only.</p></div>
+		<input type="text" id="search-input" placeholder="Search for a location">
 		<img src="https://raw.githubusercontent.com/srjouppi/srjouppi.github.io/93052fd8c6caf15dd1c8d8cfba3afe9ec70abd3b/egle-air-violations-beta/violation-map-key.png" style="width:100%;height:auto"/>
 	</div>
 	<!-- 
@@ -233,7 +253,7 @@ ALLOWS YOU TO LOAD IT LOCALLY WITHOUT DEALING WITH SETTING UP SERVERS ON YOUR MA
 HERE BEGINS ALL THE SCRIPT THAT SETS UP THE MAP 
 ALL THE COMMENTS FROM HERE WE'LL BE IN JAVASCRIPT COMMENTS //
  -->
- <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js'></script>
+ <!-- <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js'></script> -->
 
 
 	<script type="text/javascript">
@@ -248,16 +268,38 @@ ALL THE COMMENTS FROM HERE WE'LL BE IN JAVASCRIPT COMMENTS //
 
 
 
-		mapboxgl.accessToken = 'pk.eyJ1IjoiZGF0YW1hbWExMTYiLCJhIjoiY2xncXMxM21rMTFhZDNybGh6cmE4YjZreCJ9.XPLngEtaW3V0Xd2vBDaxMQ';
+		mapboxgl.accessToken = 'pk.eyJ1IjoiZGF0YW1hbWExMTYiLCJhIjoiY2xnZmU0b3RvMDBwZDNna3h4bWc5eDh2MyJ9.PBGhYjmYNCs4dL3cE04zxw';
 
 		var map = new mapboxgl.Map({
 			container: 'map', // HTML container ID
-			style: 'mapbox://styles/mapbox/light-v10', // style URL
+			style: 'mapbox://styles/datamama116/clk36q99n000a01rm5tn129rk', // style URL
 			center: [-83.6136, 43.7833], // starting position as [lng, lat]
+			bbox:[-90.418136, 41.696118, -82.413474, 48.2388],
+			tileset:"datamama116.clkx0ri4h0tiv2cpepmh8vjju-2atvm",
 			zoom: 13
 		});
-		map.addControl(new mapboxgl.NavigationControl(), 'top-left');
 
+		// Define bounds that conform to the `LngLatBoundsLike` object.
+		const bounds = [
+		[-91, 40], // [west, south]
+		[-80, 49]  // [east, north]
+		];
+		// Set the map's max bounds.
+		map.setMaxBounds(bounds);
+		// map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+		// Add the control to the map.
+		map.addControl(
+		new MapboxGeocoder({
+			
+		accessToken: mapboxgl.accessToken,
+		mapboxgl: mapboxgl,
+		countries: 'us',
+		bbox: [-90.418136, 41.696118, -82.413474, 48.2388],
+		limit:10,
+		types: 'poi,place,address',
+	
+		})
+		);
 		// var geocoder = new MapboxGeocoder({
 		// accessToken: mapboxgl.accessToken,
 		// mapboxgl: mapboxgl
@@ -274,7 +316,29 @@ ALL THE COMMENTS FROM HERE WE'LL BE IN JAVASCRIPT COMMENTS //
 
 // all of this JavaScript manages what's displayed on hover and click
 
-		var popup = new mapboxgl.Popup({ closeButton: false, closeOnClick: false });
+		const searchInput = document.getElementById('search-input');
+
+		searchInput.addEventListener('keyup', function (event) {
+		if (event.key === 'Enter') {
+			const query = searchInput.value.toLowerCase();
+			
+			// Iterate through your data to find a match
+			// Example: Replace this with your actual data and searching logic
+			const matchingLocation = infoData.find(feature => feature.properties.headline.toLowerCase() === query);
+			
+			if (matchingLocation) {
+			map.flyTo({
+				center: matchingLocation.coordinates,
+				zoom: 10,
+			});
+			} else {
+			alert('Location not found.');
+			}
+		}
+		});
+
+
+		var popup = new mapboxgl.Popup({ closeButton: false, closeOnClick: true });
 
 		let hoverCurrentId = null
 		var datalayer;
@@ -304,11 +368,10 @@ ALL THE COMMENTS FROM HERE WE'LL BE IN JAVASCRIPT COMMENTS //
 		function drawPopup(e) {
 			let feature = e.features[0]
 			map.getCanvas().style.cursor = 'pointer';
-
+			
 			var coordinates = e.lngLat;//turf.centerOfMass(feature);
 			var headline = feature.properties.headline;
 			var violationCount = feature.properties.violationCount
-
 
 
 			while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
@@ -316,7 +379,7 @@ ALL THE COMMENTS FROM HERE WE'LL BE IN JAVASCRIPT COMMENTS //
 			}
 
 			popup.setLngLat(coordinates)
-				.setHTML(`<h4>${headline}</h4><h5>Violations: ${violationCount}</h5`)
+				.setHTML(`<h2 class="popup">${headline}</h2><h5>${violationCount}</h5>`)
 				.addTo(map);
 		}
 
@@ -324,6 +387,8 @@ ALL THE COMMENTS FROM HERE WE'LL BE IN JAVASCRIPT COMMENTS //
 			map.getCanvas().style.cursor = '';
 			popup.remove();
 		}
+
+		
 
 		map.on('load', function () {
 			for (let i = 0; i < infoData.features.length; i++) {
@@ -353,27 +418,16 @@ ALL THE COMMENTS FROM HERE WE'LL BE IN JAVASCRIPT COMMENTS //
 						35, 23
 						],
 					'circle-color': ['get', 'color'],
-					'circle-opacity': .6,
-					'circle-stroke-color': 'black',  // Outline color
+					'circle-opacity':[
+						'case',
+						['boolean', ['feature-state', 'hover'], false],
+							1,
+							0.5
+						],
+					'circle-opacity-transition': { duration: 300 }, // Smooth transition for opacity changes
+					'circle-stroke-color': '#2E333F',  // Outline color
    				    'circle-stroke-width': .7, // Outline thickness
 					'circle-stroke-opacity': .8
-
-					// 'fill-color': [
-					// 	'interpolate', ['linear'],
-					// 	["to-number", ["get", "rating"]],  
-					// 	1, "#e7e7d0", 
-					// 	7, "#9f373c",
-					// 	8, "#69042B" 
-					// ],
-
-					// 'circle-outline-color': 'white'
-					// 'circle-opacity': [
-					// 	'case',
-					// 	['boolean', ['feature-state', 'hover'], false],
-					// 	1,
-
-					// 	0.9
-					// ]
 				}
 			});
 
@@ -394,7 +448,13 @@ ALL THE COMMENTS FROM HERE WE'LL BE IN JAVASCRIPT COMMENTS //
 			// When we click, update the article (the right-hand side)
 			map.on('click', 'datalayer', function (e) {
 				updateArticle(e)
-			})
+			
+				map.flyTo({
+				center: e.features[0].geometry.coordinates,
+				zoom:10,
+				});
+			});
+
 // very important!! this automatically centers the map and zooms it
 			map.fitBounds(turf.bbox(infoData), { padding: 0, linear: true })
 		})

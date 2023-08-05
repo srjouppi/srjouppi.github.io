@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Bodoni+Moda&family=Open+Sans:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Roboto+Mono:ital,wght@0,200;0,300;0,400;0,700;1,300;1,400;1,700&family=Source+Code+Pro:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Gelasio:ital,wght@0,400;0,500;1,400;1,500&display=swap');
 html, body {
     margin: 0;
     background: white;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Gelasio', serif;
 }
 
 p{
-    font-family: 'Inter', sans-serif;
+    font-family: 'Gelasio', serif;
     font-weight: 400;
     line-height: 1.7em;
     font-size:1.1em;
@@ -14,70 +16,90 @@ p{
 }
 
 h1 {
-    font-family:"Roboto Mono",monospace;
+    font-family:"Asap",sans-serif;
     text-transform:uppercase;
     line-height:1.2em;
     color:white;
 }
 h2{
-    font-family:"Roboto Mono",monospace;
+    font-family:"Asap",sans-serif;
+    text-transform:uppercase;
     font-size:1.8em;
     font-weight:400;
     line-height:1.2em;
     color:rgb(220, 220, 220);
     
 }
-
+h2.popup {
+    color:#2E333F;
+}
 h3.group_1{
+    font-family:'Asap', sans-serif;
+    font-weight:600;
+    text-transform:uppercase;
     font-size:1.3em;
     color:white;
-    padding:3px;
+    padding-left:25px;
+    padding-top:15px;
+    padding-bottom:15px;
     display: inline-flex;
-    background-color: #894163;
-    border-style: solid;
-    border-width: 2px;
-    border-color: black;
+    width:100%;
+    margin: 0 auto;
+    background-color: #631C1C;
 }
 
 h3.group_2{
+    font-family:'Asap', sans-serif;
+    font-weight:600;
+    text-transform:uppercase;
     font-size:1.3em;
-    color:black;
-    padding:3px;
+    color:white;
+    padding-left:25px;
+    padding-top:15px;
+    padding-bottom:15px;
     display: inline-flex;
-    background-color:#ff4060;
-    border-style: solid;
+    width:100%;
+    margin: 0 auto;
+    background-color:#ce2d4f;
+    /* border-style: solid;
     border-width: 2px;
-    border-color: black;
+    border-color: #ce2d4f; */
 }
 
 h3.group_3{
-
+    font-family:'Asap', sans-serif;
+    font-weight:600;
+    text-transform:uppercase;
     font-size:1.3em;
     color:black;
-    padding:3px;
+    padding-left:25px;
+    padding-top:15px;
+    padding-bottom:15px;
     display: inline-flex;
-    background-color: #fb884e;
-    border-style: solid;
-    border-width: 2px;
-    border-color: black;
-    /* border-radius: 5px; */
+    width:100%;
+    margin: 0 auto;
+    background-color: #ff7f11;
 
 }
 
 h3.group_4{
+    font-family:'Asap', sans-serif;
+    font-weight:600;
+    text-transform:uppercase;
     font-size:1.3em;
-    padding:3px;
-    display: inline-flex;
     color:black;
-    background-color: #FFBD00;
-    border-style: solid;
-    border-width: 2px;
-    border-color: black;
+    padding-left:25px;
+    padding-top:15px;
+    padding-bottom:15px;
+    display: inline-flex;
+    width:100%;
+    margin: 0 auto;
+    background-color:#ffd748;
 }
 
 
 h4{
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Asap', sans-serif;
     font-weight: 600;
     line-height: 1.7em;
     font-size:1.1em;
@@ -85,7 +107,7 @@ h4{
 }
 
 h3{
-    font-family: 'Roboto Mono', monospace;
+    font-family:"Gelasio",sans-serif;
     font-weight: 400;
     line-height: 1.7em;
     font-size:1em;
@@ -93,21 +115,22 @@ h3{
 }
 
 h5{
-    font-family: 'Roboto Mono', monospace;
-    font-weight: 300;
+    font-family: 'Asap',sans-serif;
+    font-weight: 400;
     line-height: 1.7em;
-    font-size:1.2em;
-    color: #1a1a1a;
+    font-size:2em;
+    color: #2E333F;
 }
 
 a {
+    font-family:'Asap', sans-serif;
     font-size:1.3em;
-    color:black;
+    color:#2E333F;
     text-decoration:underline;
 }
 
 a:hover{
-    background-color: #FABB16;
+    background-color: #ffd748;
     text-decoration: underline;
 
 }
@@ -170,7 +193,7 @@ a:hover{
 }
 a.highlight{
     background-color:#FABB16;
-    color:black;
+    color:#2E333F;
     font-weight:bold;
     font-family: "Roboto Mono",monospace;
     text-decoration:none;
@@ -180,14 +203,14 @@ a.highlight{
 
 a.highlight:hover{
     background-color:#FAF8D7;
-    color:black;
+    color:#2E333F;
     font-weight:bold;
     text-decoration:none;
 }
 
 a.highlight-small{
     background-color:#FABB16;
-    color:black;
+    color:#2E333F;
     font-weight:bold;
     font-size:small;
     font-family: "Roboto Mono",monospace;
@@ -195,14 +218,14 @@ a.highlight-small{
 }
 a.highlight-small:hover{
     background-color:#FAF8D7;
-    color:black;
+    color:#2E333F;
     font-weight:bold;
     text-decoration:none;
 }
 
 .highlight-orange{
     background-color:#FABB16;
-    color:black;
+    color:#2E333F;
     font-weight:bold;
     font-family: "Roboto Mono",monospace;
     text-decoration:none;
@@ -210,7 +233,7 @@ a.highlight-small:hover{
 
 .highlight-blue-lt{
     background-color:#BACCF4;
-    color:black;
+    color:#2E333F;
     font-weight:bold;
     font-family: "Roboto Mono",monospace;
     text-decoration:none;
@@ -218,7 +241,7 @@ a.highlight-small:hover{
 
 .highlight-red{
     background-color:#df7363;
-    color:black;
+    color:#2E333F;
     font-weight:bold;
     font-family: "Roboto Mono",monospace;
     text-decoration:none;
@@ -232,7 +255,7 @@ a.highlight-small:hover{
 
 .highlight-yellow{
     background-color:#ecb92d;
-    color:black;
+    color:#2E333F;
     font-weight:bold;
     font-family: "Roboto Mono",monospace;
     text-decoration:none;
@@ -240,7 +263,7 @@ a.highlight-small:hover{
 
 .highlight-blue{
     background-color:#3d6de7;
-    color:black;
+    color:#2E333F;
     font-weight:bold;
     font-family: "Roboto Mono",monospace;
     text-decoration:none;
@@ -255,7 +278,7 @@ a.highlight-small:hover{
 
 hr {
     
-    stroke:black;
+    stroke:#2E333F;
     margin-top: 2em;
     margin-bottom: 2em;
   }
@@ -307,7 +330,7 @@ color:#fff;
 vertical-align:center;  
 }
 .footer a:hover{
-    background-color:black; 
+    background-color:#2E333F; 
     }
 
     .bold-yellow {
