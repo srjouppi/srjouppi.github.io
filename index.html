@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-A-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shelby Jouppi - Freelance Data Journalist</title>
+    <title>Shelby Jouppi - Freelance Data Reporter</title>
     <meta name="description" content="Denver-based freelance journalist specializing in data collection, cleaning, analysis and visualization."/>
     <!-- Add fonts here -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:creator" content="@shelbyjouppi">
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.svg">
-    <link rel="stylesheet" href="pointsunknown-style.css">
+     <link rel="stylesheet" href="/article-style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,119 +34,15 @@
 </head>
 
 <style>
-    /* Overwriting Bulma Styles */
-    img:hover {
-      opacity:.5;
+    a {
+    color:black;
+    text-decoration:underline;
     }
-    .hero a.reverse{
-      background-color:#FAF8D7;
-      color:black;
-      font-size:1em;
-      text-decoration: underline;
-      padding:5px;
-      font-weight:bold;
-      margin-left:0px;
-    }
-    .hero a.reverse:hover{
-      background-color:black;
-      color:#FAF8D7;
-    }
-    .highlight{
-      margin-left:5px;
-      margin-right:5px;
-      background-color:#FABB16;
-      color:black;
-      font-weight:bold;
-      font-family: "Roboto Mono",monospace;
-      text-decoration:none;
-      }
-        a{
-            color:black;
-            text-decoration:underline;
-        }
-
-        a:hover{
-            color: #87898A;
-            text-decoration: underline;
-
-        }
-        .hero {
-          font-family: "Inter", sans-serif;
-          font-weight:400;
-          letter-spacing: .01em;
-          color: #fff;
-          font-size: 1em;
-          background-color:#FABB16;
-          padding:0;
-        }
-        .hero .title {
-          font-family: "Inter", sans-serif;
-          color: #FAF8D7;
-          background-color: black;
-          font-weight: 600;
-          padding-left:5px;
+    .hero .title {
           margin-bottom:5px;
-          text-transform:uppercase;
-          letter-spacing:.05em;
+          width:155px;
         }
-        .hero .subtitle{
-          font-family:'Inter', sans-serif;
-          color: #FAF8D7;
-          font-size:1em;
-          letter-spacing: .05em;
-        }
-        .hero a{
-          color:black;
-          text-decoration:underline;
-          font-size:1em;
-          margin:5px;
-          padding:2px;
-        }
-        .hero a:hover{
-          background-color:#FAF8D7;
-          font-size:1em;
-          text-decoration: underline;
-        }
-        hr {
-          border-top: .5px;
-          stroke:black;
-          margin-top: 2em;
-          margin-bottom: 2em;
-        }
-        .card {
-          border: 1px solid #000;
-          padding:0;
-        }
-        .card-image{
-          padding:0;
-        }
-        .img{
-          margin: 0 auto;
-          width:100%;
-        }
-        .footer1 {
-          padding-top:60px;
-          padding-left:30px;
-          padding-right:30px;
-          padding-bottom:100px;
-          height:80px;
-          letter-spacing:.03em;
-          color:#fff;
-          background-color:#000;
-          margin:0 auto;
-
-    }
-        .footer1 a{
-            color:#fff;
-            vertical-align:center;
-            font-size:1.2em;    
-        }
-        .banner {
-          width:100%;
-          height:15em;
-          background-color:black;
-          padding:5em;
-        }
+      
 </style>
 <body>
     <section class="hero">
@@ -156,18 +52,15 @@
                 <h1 class="title">JOUPPI</h1>
             </div>
         <div class="column is-two-fifths">
-            <p>Hello! I'm a freelance data journalist based in Denver, Colorado. 
-              Before recently finishing my master's at Columbia University,
+            <p>I'm a <b>freelance public health data reporter</b> based in Denver, Colorado. Before finishing my master's at Columbia University's Graduate School of Journalism,
               I was a <b>public radio reporter</b> at WDET Detroit, a <b>podcast producer</b> 
               and a <b>graphic designer.</b>
               <br/>
               <br/>
               I'm here to help local newsrooms find creative ways to bolster their community reporting with
-              data collection, analysis and visualization.
+              data collection, analysis and visualization and public service tools.
               <br/>
               <br/>
-              <!-- <a class="reverse" href="https://calendly.com/sjouppi" target="_blank">Book a free 30-minute consultation.</a> -->
-
               </p>
             
               <br/><br/>
@@ -179,15 +72,12 @@
                     <a href="https://www.github.com/srjouppi" target="_blank">
                         <span>github</span>
                     </a>
-                    <a href="#contact">
-                      <span>email</span>
-                    </a>
                     <a href="https://www.linkedin.com/in/shelbyjouppi/" target="_blank">
                       <span>linkedin</span>
                     </a>
-
-                    <!-- <span style="color:black;"> shelbyjouppi (at) gmail.com</span> -->
-                    
+                    <a href="#about">
+                      <span>about</span>
+                    </a>                    
                 </div>            
         </div>
     </div>
@@ -195,9 +85,8 @@
 
     <!-- Work Sample Section -->
     <section class="section" id="assignments">
-      <!-- <div class="text-container"> -->
       <div class="columns is-centered is-multiline content">
-        <!-- Dashboard -->
+        <!-- 1: Dashboard -->
         <div class = "column is-one-third">
           <div class="card">
             <div class="card-image">
@@ -205,15 +94,17 @@
               </div>
             <div class="card-content">        
               <div class="content">
-                <h3><a href="https://dashboard.planetdetroit.org" target="_blank">Michigan Air Violations Tracker</a></h3>
-                <p>I pitched, designed and developed an interactive platform for nonprofit newsroom <a href="https://planetdetroit.org/" target="_blank">Planet Detroit</a>
-                  that allows readers to explore the violation history of air polluters in Michigan. It updates
-                  every day with the newest violation notices issued by EGLE.
+                <h3><a href="https://dashboard.planetdetroit.org" target="_blank">
+                  Michigan Air Violations Tracker</a></h3>
+                <p>I pitched, designed and developed an interactive platform for local environmental 
+                  newsroom <a href="https://planetdetroit.org/" target="_blank">Planet Detroit</a>
+                  that allows readers to explore the violation history of air polluters in Michigan. 
+                  It updates every day with the newest violation notices issued by EGLE.
                 </p>
                 <p>I made the dashboard using javascript—a first for me—and <a href="https://github.com/Planet-Detroit/air-permit-violation-dashboard" target="_blank">created a program</a>
                   that looks for new violation notices every day, parses them with pdfplumber,
                   and adds them to the data.</p>
-                <p>In its first week, the site helped us report on <a href="https://planetdetroit.org/2023/09/southwest-detroit-steel-slag-processor-edward-c-levy-receives-12th-air-quality-permit-violation-for-fallout-since-2018/" target="_blank">a chronic violator</a> in Southwest Detroit.  
+                <p>It's regularly utilized by environmental lawyers, college educators and citizens. In its first week, the site helped us report on <a href="https://planetdetroit.org/2023/09/southwest-detroit-steel-slag-processor-edward-c-levy-receives-12th-air-quality-permit-violation-for-fallout-since-2018/" target="_blank">a chronic violator</a> in Southwest Detroit.  
                   Deep gratitude to Planet Detroit for making this open data accessibility project possible. 
                 </p>
                 <a href="https://dashboard.planetdetroit.org" target="_blank">Explore the dashboard →</a>
@@ -221,7 +112,7 @@
             </div>
           </div>
         </div>
-              <!-- Edward C. Levy -->
+              <!--2: Edward C. Levy -->
               <div class = "column is-one-third">
                 <div class="card">
                   <div class="card-image">
@@ -230,13 +121,13 @@
                   <div class="card-content">        
                     <div class="content">
                       <h3><a href="https://planetdetroit.org/2023/09/southwest-detroit-steel-slag-processor-edward-c-levy-receives-12th-air-quality-permit-violation-for-fallout-since-2018/" target="_blank">Southwest Detroit steel slag processor receives 12th air quality permit violation for fallout since 2018</a></h3>
-                      <p>Using the Michigan Air Violations Tracker I created, I reported on a chronic violator in an area of Detroit and Dearborn that is overburdened by industry and air pollution.</p>
+                      <p>Using the Michigan Air Violations Tracker I developed, I reported on a chronic violator in an area of Detroit and Dearborn that is overburdened by industry and air pollution.</p>
                       <a href="https://planetdetroit.org/2023/09/southwest-detroit-steel-slag-processor-edward-c-levy-receives-12th-air-quality-permit-violation-for-fallout-since-2018/" target="_blank">Read the article →</a>
                     </div>
                   </div>
                 </div>
               </div>
-          <!-- Clinic Wait Times -->
+          <!-- 3: Clinic Wait Times -->
           <div class = "column is-one-third">
             <div class="card">
               <div class="card-image">
@@ -245,9 +136,10 @@
               <div class="card-content">        
                 <div class="content">
                   <h3><a href="https://shelbyjouppi.com/child-mental-health-wait-times/" target="_blank">Quantifying mental health care accessibility for children in NYC</a></h3>
-                  <p>For my master's project, I surveyed 172 (roughly 80%) of the child and 
+                  <p>For a master's project, I surveyed 172 (roughly 80%) of the child and 
                     adolescent community mental health clinics in NYC and collected wait times 
-                    for a new child appointment. I visualized the results and spoke to a 
+                    for a new child appointment. I visualized the results alongside spatial analysis to show
+                    the distribution of clinic wait times compared to the pediatric Medicaid population. I spoke with a 
                     dozen experts about what led us to this point.</p>
                   <p>Experts often said that the insurance reimbursment rates for mental
                     health were way too low. To try to quantify the non-insurance market rate,
@@ -259,7 +151,7 @@
             </div>
           </div>
 
-        <!-- Detroitography -->
+        <!-- 4: Detroitography -->
         <div class = "column is-one-third">
           <div class="card">
             <div class="card-image">
@@ -269,7 +161,7 @@
               <div class="content">
                 <h3><a href="https://detroitography.com/2023/10/04/map-detroit-michigan-air-permit-violations-since-2018/" target="_blank">Mapping metro Detroit air permit violation disparities</a></h3>
                 <p>I analyzed air quality permit violation data for <a href="https://detroitography.com/" target="_blank">DETROITography</a>
-                and visualized the the disproportionate number of major and mega sources of air pollution in Wayne County.</p>
+                and visualized the disproportionate number of major and mega sources of air pollution in Wayne County.</p>
                 <p>The article includes a couple of maps of these sources and their violations compared to
                   poverty data and the state's environmental justice scores.</p>
                 <a href="https://detroitography.com/2023/10/04/map-detroit-michigan-air-permit-violations-since-2018/" target="_blank">View the maps →</a>
@@ -277,11 +169,10 @@
             </div>
           </div>
         </div>
-          <!-- Sample 2: Air Quality Doc Scraper -->
+          <!-- 5: Air Quality Doc Scraper -->
                     <div class = "column is-one-third">
                       <div class="card">
                         <div class="card-image">
-                          <!-- <figure class="image is-4by3"> -->
                            <a href="egle-air-database/"><img src="https://github.com/srjouppi/srjouppi.github.io/blob/main/images/michigan-egle-air-database.png?raw=true"/></a>
                           </div>
                         <div class="card-content">        
@@ -301,18 +192,17 @@
                         </div>
                       </div>
                     </div>
-          <!-- Sample 3: Psychologist Shortage -->
+          <!-- 6: Psychologist Shortage -->
           <div class = "column is-one-third">
             <div class="card">
               <div class="card-image">
-                <!-- <figure class="image is-4by3"> -->
                   <a href="/nyc-child-psychologists/"><img src="https://raw.githubusercontent.com/srjouppi/srjouppi.github.io/main/images/child-mind-01.png" alt="An illustration of a child's profile with blue and purple squiggles near head signifying mental health."/></a>
                 </div>
               <div class="card-content">        
                 <div class="content">
                   <h3><a class="headline" href="nyc-child-psychologists/">Visualizing the child psychologist shortage</a></h3>
                   <p>There are nearly 1.3 million children who rely on Medicaid for health 
-                    coverage in New York City. I wanted to know, how many child psychologists 
+                    coverage in New York City. I wanted to know, how many psychologists <i>specializing in children and adolescents</i>
                     are accessible to them?</p>
                   <p><a href="https://github.com/srjouppi/nyc-child-psychologists-scraper" target="_blank">
                     I created a scraper</a> to cross reference Medicaid provider codes with the 
@@ -324,21 +214,17 @@
             </div>
           </div>
 
-
-
-<!-- Sample 4: Great Lakes Water Usage -->
+<!-- 7: Great Lakes Water Usage -->
         <div class = "column is-one-third">
           <div class="card">
             <div class="card-image">
-              <!-- <figure class="image is-4by3"> -->
                 <a href="/michigan-great-lakes-usage/"><img src="https://github.com/srjouppi/srjouppi.github.io/blob/main/images/mi-great-lakes-water-usage.png?raw=true"/></a>
               </div>
             <div class="card-content">        
               <div class="content">
                 <h3><a class="headline" href="/michigan-great-lakes-usage/">Analyzing changes in Great Lakes water consumption</a></h3>
-                <p>For an exercise in my Data Studio course at Columbia, I concatted nine 
-                  separate .csv files of nine years' worth of Great Lakes water usage
-                  data to analyze changes over time. My analysis found that consumption,
+                <p>I created this quick-turn data story for Columbia's Data Studio course. I concatted nine years' worth of Great Lakes water usage
+                  data to analyze changes over time. My analysis found that water consumption
                   increased significantly since 2019 due to a change in power generation methods.</p>
                 </p>
                 <a href="/michigan-great-lakes-usage/">View the chart →</a>
@@ -347,7 +233,7 @@
           </div>
         </div>
 
-                      <!-- Sample 5: Colorado Parks Usage -->
+                      <!-- 8: Colorado Parks Usage -->
                       <div class = "column is-one-third">
                         <div class="card">
                           <div class="card-image">
@@ -357,29 +243,28 @@
                           <div class="card-content">        
                             <div class="content">
                               <h3><a class="headline" href="/colorado-parks-mobility/">Visualizing Denver's increasing park traffic</a></h3>
-                              <p>For Columbia's Data Studio seminar, I analyzed both Google's COVID-19 Mobility data and its search trends data to show that Denver residents were searching for and using their parks more than in 2020.</p>
+                              <p>For Columbia's Data Studio seminar, I analyzed Google's COVID-19 Mobility data and its search trends data to illustrate how Denver residents were searching out and utilizing local parks more than in 2020.</p>
                               <a href="/colorado-parks-mobility/">Check out the charts →</a>
                             </div>
                           </div>
                         </div>
                       </div>
-         <!-- Sample 3: Colorado Fire Risk Data -->
+         <!-- 9: Colorado Fire Risk Data -->
          <div class = "column is-one-third">
           <div class="card">
             <div class="card-image">
-              <!-- <figure class="image is-4by3"> -->
                 <a href="https://srjouppi.github.io/pointsunknown-colorado-firedata"><img src="https://github.com/srjouppi/points-unknown-coursework/blob/main/img/colorado-drought.png?raw=true" alt="Placeholder image"></a>
             </div>
             <div class="card-content">        
               <div class="content">
                 <h3><a class="headline" href="https://srjouppi.github.io/pointsunknown-colorado-firedata">Colorado drought and fire risk map</a></h3>
-                <p>For Columbia's 2022 Points Unknown course, I created an interactive map visualizing current drought levels and predicted average wildfire flame intensity per county using USDA Fire Service data.</p>
+                <p>For Columbia's cartography course "Points Unknown", I created an interactive map visualizing current drought levels and predicted average wildfire flame intensity per county using USDA Fire Service data.</p>
                 <a href="https://srjouppi.github.io/pointsunknown-colorado-firedata">See the maps →</a>
               </div>
             </div>
           </div>
         </div>
-                  <!-- Alternative sample -->
+                  <!-- 10: Psychology Today Scrape -->
                   <div class = "column is-one-third">
                     <div class="card">
                       <div class="card-image">
@@ -400,16 +285,15 @@
                     </div>
                   </div>
 
-        <!-- Sample 4: Ukrainian Community -->
+        <!-- 11: Ukrainian Community -->
         <div class = "column is-one-third">
         <div class="card">
           <div class="card-image">
-            <!-- <figure class="image is-4by3"> -->
               <a href="https://columbianewsservice.com/2021/12/08/in-new-yorks-east-village-young-ukrainians-hold-onto-their-culture/" target="_blank"><img src="https://raw.githubusercontent.com/srjouppi/srjouppi.github.io/main/images/ukrainian-schools-nyc.png" alt="Children dressed in traditional Ukrainian clothes, sitting in a school working on a coloring sheet."/></a>
             </div>
           <div class="card-content">        
             <div class="content">
-              <h3><a class="headline" href="https://columbianewsservice.com/2021/12/08/in-new-yorks-east-village-young-ukrainians-hold-onto-their-culture/" target="_blank">Community reporting: "In New York’s East Village, Young Ukrainians Hold Onto Their Culture"</h3>
+              <h3><a class="headline" href="https://columbianewsservice.com/2021/12/08/in-new-yorks-east-village-young-ukrainians-hold-onto-their-culture/" target="_blank">Community reporting: "In New York’s East Village, Young Ukrainians Hold Onto Their Culture"</a></h3>
               <p>I spent eight weeks in the fall of 2021 reporting on New York's Ukrainian community. This story, about a decades-long effort to pass the country's language and cultural heritage on to the next generation, was published in the Columbia News Service in December 2021.</p>
               <a href="https://columbianewsservice.com/2021/12/08/in-new-yorks-east-village-young-ukrainians-hold-onto-their-culture/" target="_blank">Read the article on Columbia News Service →</a>
             </div>
@@ -418,32 +302,30 @@
       </div>
 
 
-      <!-- Sample 5: Critical Race Theory -->
+      <!-- 12: Critical Race Theory -->
       <div class = "column is-one-third">
         <div class="card">
           <div class="card-image">
-            <!-- <figure class="image is-4by3"> -->
-              <a href="https://semerriam.github.io/projects/pj-crt/index.html" target = "_blank"><img src="https://raw.githubusercontent.com/srjouppi/srjouppi.github.io/main/images/indoctrination.png" alt="A screenshot of a Fox News Ingraham Angle broadcast, with Laura Ingraham in the left frame and journalist Chris Rufo in the right."/></a>
+              <a href="fox-news-crt-analysis/"><img src="https://raw.githubusercontent.com/srjouppi/srjouppi.github.io/main/images/indoctrination.png" alt="A screenshot of a Fox News Ingraham Angle broadcast, with Laura Ingraham in the left frame and journalist Chris Rufo in the right."/></a>
             </div>
           <div class="card-content">        
             <div class="content">
-              <h3><a class="headline" href="https://semerriam.github.io/projects/pj-crt/index.html" target = "_blank">Media analysis: How Fox News redefined critical race theory</a></h3>
+              <h3><a class="headline" href="fox-news-crt-analysis/">Media analysis: Investigating the origin of the national critical race theory debate</a></h3>
               <p>As part of a group reporting project, my team analyzed two years' worth of Fox News broadcasts to track its coverage of critical race theory over time. Together we created a comprehensive timeline of recent events including major TV network and online coverage, protests and legislative actions.</p>
-              <a href="https://semerriam.github.io/projects/pj-crt/index.html" target = "_blank">View the story →</a>
+              <a href="fox-news-crt-analysis/">View the story →</a>
             </div>
           </div>
         </div>
       </div>
-            <!-- Sample 8: d3 heatmap -->
+            <!-- Sample 13: d3 heatmap -->
             <div class = "column is-one-quarter">
               <div class="card">
                 <div class="card-image">
-                  <!-- <figure class="image is-4by3"> -->
                     <a href="/crt-heatmap-d3/"><img src="https://raw.githubusercontent.com/srjouppi/srjouppi.github.io/main/images/d3-heatmap.png" alt="A heatmap using shades of orange-red. The y-axis shows words like 'federal','america(n)','racist', children/kids', parents'. The tooltip highlights a square from March 2021 that shows 'children/kids' appeared in 21% of CRT-related news clips."/></a>
                   </div>
                 <div class="card-content">        
                   <div class="content">
-                    <h3><a class="headline" href="/crt-heatmap-d3/">Interactive heatmap: visualizing Fox News' critical race theory coverage</a></h3>
+                    <h3><a class="headline" href="/crt-heatmap-d3/">Interactive heatmap: Visualizing Fox News' critical race theory coverage</a></h3>
                     <p>For a quick intro to d3 class, I repurposed the transcript data we collected about 
                       the content of Fox's CRT coverage and created an interactive heatmap of some of
                       most popular words found in those clips over time.</p>
@@ -452,16 +334,15 @@
                 </div>
               </div>
             </div>
-      <!-- Sample 7: 311 Analysis -->
+      <!-- Sample 14: 311 Analysis -->
       <div class = "column is-one-quarter">
         <div class="card">
           <div class="card-image">
-            <!-- <figure class="image is-4by3"> -->
               <a href="/nyc-illegal-dumping/"><img src="https://raw.githubusercontent.com/srjouppi/srjouppi.github.io/main/images/nyc-illegal-dumping.png" alt="a choropleth map of New York City showing number of illegal dumping complaints to 311. The darkest concentrations are in East Harlem, Jamaica, East New York and Ozone Park."/></a>
             </div>
           <div class="card-content">        
             <div class="content">
-              <h3><a class="headline" href="/nyc-illegal-dumping/">Quick-turn data story: illegal dumping in NYC</a></h3>
+              <h3><a class="headline" href="/nyc-illegal-dumping/">Quick-turn data story: Illegal dumping in NYC</a></h3>
               <p>After my initial lead fell through, I had to turn the analysis, interviews and
                  writing around for this story in two days to meet my deadline. As a mom balancing parenthood
                   <i>and</i> four other graduate courses, I was pretty proud of this.</p>
@@ -470,17 +351,16 @@
           </div>
         </div>
       </div>
-      <!-- Sample 6: Go Fund Me -->
+      <!-- Sample 15: Go Fund Me -->
       <div class = "column is-one-quarter">
         <div class="card">
           <div class="card-image">
-            <!-- <figure class="image is-4by3"> -->
               <a href="covid-gofundme-analysis/"><img src="https://raw.githubusercontent.com/srjouppi/srjouppi.github.io/main/covid-gofundme-analysis/covid-go-fund-me-cropped.png" alt="A grid of GoFundMe campaigns, with images of patients in hospitals and smiling families."/></a>
             </div>
           <div class="card-content">        
             <div class="content">
-              <h3><a class="headline" href="/covid-gofundme-analysis/">The cost of COVID</a></h3>
-              <p>As part of the Data Studio course at Columbia, I scraped 5,000+ GoFundMe campaigns and conducted text and statistical analyses to try to capture the cost of a severe COVID diganosis.</p>
+              <h3><a class="headline" href="/covid-gofundme-analysis/">Unstructured data: Scraping GoFundMe to quantify the cost of COVID</a></h3>
+              <p>As part of Columbia's Data Studio course, I scraped 5,000+ GoFundMe campaigns and conducted text analyses to try to capture the cost of a severe COVID diganosis.</p>
               <p>For this story, I created a custom responsive chart using plotnine (ggplot), Adobe llustrator and ai2html.</p>
               <a href="covid-gofundme-analysis/">View the story →</a>
             </div>
@@ -488,54 +368,36 @@
         </div>
       </div>
 
-            <!-- Sample 9: mapping therapy rates -->
+            <!-- Sample 16: Mapping therapy rates -->
             <div class = "column is-one-quarter">
               <div class="card">
                 <div class="card-image">
-                  <!-- <figure class="image is-4by3"> -->
                     <a href="/us-therapy-reimbursement/"><img src="https://raw.githubusercontent.com/srjouppi/srjouppi.github.io/main/images/us-therapy-rates-bar.png" alt=""/></a>
                   </div>
                 <div class="card-content"> 
                   <div class="content">
                     <h3><a class="headline" href="/us-therapy-reimbursement/">Making a dataset: How much do states value therapy?</a></h3>
                     <p>I wanted to know how much each state was paying providers for therapy, so I 
-                      compiled a dataset and mapped the results. I then compared each state's rate
+                      compiled a dataset of Medicaid reimbursement rates by combing through each state's provider fee schedule. I mapped the results and then compared each state's rate
                       to its cost of living score to find disparities.</p>
                     <a href="/us-therapy-reimbursement/">View the story →</a>
                   </div>
                 </div>
               </div>
             </div>
-        <!-- Sample 7: ACLED Global Map -->
-        <!-- <div class = "column is-one-third">
-          <div class="card">
-            <div class="card-image">
-                <img src="https://github.com/srjouppi/points-unknown-coursework/blob/main/img/violence-against-women.png?raw=true" alt="Placeholder image">
-              </div>
-            <div class="card-content">        
-              <div class="content">
-                <h3>State violence against women</h3>
-                <p>For Columbia's 2022 Points Unknown course, I created a global map of recent military violence against women using ACLED's database.</p>
-                <a href="https://srjouppi.github.io/pointsunknown-state-violence-against-women">See the maps →</a>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-
   <hr/>
       </div>
-      <!-- </div> -->
   </section>
     <div class="banner">
       <h4 style="font-size:1.2em;"><span style="color:#FABB16">In a past life, I had the privilege of telling stories with audio.</span></h4>
       <h4 style="font-size:1.2em;">View my older work below.</h4>
     </div>
+
     <!-- Archived Work Sample Section -->
     <section class="section" id="archive">
       <div class="columns is-centered is-multiline content">
 
-          <!-- Sample 1: Confessional Podcast -->
+          <!-- 1: Confessional Podcast -->
           <div class = "column is-one-quarter">
             <div class="card">
               <div class="card-image">
@@ -551,7 +413,7 @@
             </div>
           </div>
 
-          <!-- Sample 2: Home on the Range -->
+          <!-- 2: Home on the Range -->
 
           <div class = "column is-one-quarter">
             <div class="card">
@@ -568,7 +430,7 @@
             </div>
           </div>
 
- <!-- Sample 3: Community Benefits Ordinance -->
+ <!-- 3: Community Benefits Ordinance -->
 
  <div class = "column is-one-quarter">
   <div class="card">
@@ -586,7 +448,7 @@
     </div>
   </div>
 </div>
-<!--  Sample 4: CuriosiD-->
+<!--  4: CuriosiD-->
 
 <div class = "column is-one-quarter">
   <div class="card">
@@ -596,7 +458,7 @@
     <div class="card-content">        
       <div class="content">
         <h3><a href="curiosid" class="headline">Audience-powered reporting</a></h3>
-        <p>As the project lead for WDET's audience engagement series CuriosiD, I had the 
+        <p>As the project lead for WDET's audience engagement series "CuriosiD," I had the 
         privilege of helping listeners answer their burning questions
         about Detroit and the region. Their curiosity inspired some of the most
         meaningful and delightful stories.</p>
@@ -608,23 +470,25 @@
 
  </div>
 </section>
+<!-- About Section -->
 <section class="section">
   <div class="my-6 columns is-centered is-multiline content">
     <div class="column is-one-third">
+    <a name="about"></a>
     <h3>About</h3>
-    <img src="images/shelby-jouppi-headshot.jpg" style="width:200px;height:auto;border:#000;border-width:1px;border-style:solid;border-radius:.2em;" align="left">
+    <img src="images/shelby-jouppi-headshot.jpg" class="left" style="width:200px;">
     <p>
-      I’m a public health reporter with five years of experience managing large
-      collaborative projects and creating valuable journalism for and with 
+      I’m a public health reporter with programming and design chops. I have eight years of experience 
+      managing large collaborative projects and creating public service journalism for and with 
       the audience. </p>
 
-      <p>After recently going back to school and completing a master's degree 
-      in data journalism from Columbia University, I now have the technical 
-      training to quantify and visualize the issues that matter most to the public.</p>
+      <p>After four years as a local reporter, I grew tired of only being able to cover issues in my community with spotty anecdotes and opinions. 
+      So I decided to go back to school and completed a master's degree in data journalism from Columbia University's Graduate School of Journalism in 2022. 
+      Now I'm using computational techniques to investigate, quantify and contextualize the issues people feel deeply.</p>
 
-      <p>As a mama to a child with special health needs, I'm especially focused 
-      on filling information gaps so people can make the best decisions about 
-      their health and hold decision-makers accountable.</p>
+      <p>As a mama to a child with special health needs, I know how vulnerable one can feel struggling to find the right
+        providers, navigate insurance, or figure out how to protect your family from environmental hazards. That's why I'm especially focused 
+      on filling information gaps so people can make the best decisions about their health and hold decision-makers accountable.</p>
       <h5><a href="../resume/">View my resume →</a></h5>
       <br/>
       <hr/>
@@ -641,7 +505,7 @@
       <br/>
       <br/>
       <hr/>
-      <span style="font-family:Roboto Mono, monospace;">This site was built with Bulma & HTML.<br/>Copyright Shelby Jouppi 2023</span>
+      <span style="font-family:Roboto Mono, monospace;">This site was built with Bulma & HTML.<br/>Copyright Shelby Jouppi 2024</span>
     </div>
   </div>
 </section>
