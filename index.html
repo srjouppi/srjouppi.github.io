@@ -17,7 +17,7 @@
     <meta name="description" content="Denver-based freelance journalist specializing in data collection, cleaning, analysis and visualization."/>
     <!-- Add fonts here -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Shelby Jouppi: Data Journalist & Multimedia Specialist">
+    <meta property="og:title" content="Shelby Jouppi: Freelance Data Reporter">
     <meta property="og:description" content="Denver-based public health reporter specializing in data collection, cleaning and analysis.">
     <meta property="og:type" content="article">
     <meta property="og:image" content="https://raw.githubusercontent.com/srjouppi/srjouppi.github.io/main/images/shelby-jouppi.png">
@@ -42,35 +42,84 @@
           margin-bottom:5px;
           width:146px;
         }
-      
+    #mobile-list{
+      display:none;
+    }
+    #mobile-list.hr{
+      border-color:black !important;
+    }
+    td{
+      padding:12px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.7em;
+      font-size: 1.1em;
+      color: #1a1a1a;
+      vertical-align: middle;
+    }
+    tr {
+        margin-bottom: 10px;
+        display: block;
+      }
+    @media (max-width: 600px) {
+    #mobile-list{
+      display:inherit;
+      width:100%;
+    }
+    #desktop-list{
+      display:none;
+    }
+    }
+   
 </style>
 <body>
     <section class="hero">
         <div class="hero-body">
-            <div class= "column is-one-fifth">
+            <div class= "column is-one-fifth" id="logo">
                 <h1 class="title">SHELBY</h1>
                 <h1 class="title">JOUPPI</h1>
             </div>
         <div class="column is-two-fifths">
-            <p>I'm a Denver-based freelance data reporter. I love:
+            <p>I'm a Denver-based freelance data reporter. I specialize in:</p>
               <br/>
-              <br/>
+              <div id="mobile-list">
+              <table>
+                <tr>
+                  <td>🔍</td>
+                  <td><b>filling information gaps</b>
+                    <br/>for local audiences</td>
+                </tr>
+                <tr>
+                  <td>📊</td>
+                  <td><b>quantifying issues</b> 
+                    <br/>that matter to them,</td>
+                </tr>
+                <tr>
+                  <td>🛠️</td>
+                  <td>and <b>creating tools</b> 
+                    <br/>to meet their needs.</td>
+                </tr>
+              </table>
+            </div>
+
+              <div id="desktop-list">
+                <p>
               🔍 <b>filling information gaps</b> for local audiences,
               <br/> 
               📊 <b>quantifying issues</b> that matter to them,
               <br/>
               🛠️ and <b>creating tools</b> to meet their needs.
+            </p>
+              </div>
 
               <!-- I'm a <b>freelance data journalist</b> based in Denver, Colorado. Before getting my master's at Columbia University's Graduate School of Journalism,
               I was a <b>public radio reporter</b> at WDET Detroit, a <b>podcast producer</b> 
               and a <b>graphic designer.</b> -->
               <br/>
+              <p>If you would like support finding creative ways to bolster your local reporting with
+              data collection, analysis and visualization, let's talk!</p>
               <br/>
-              If you would like support finding creative ways to bolster your local reporting with
-              data collection, analysis and visualization, let's talk!
               <br/>
-              <br/>
-              </p>
             
               <br/><br/>
 
