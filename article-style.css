@@ -79,6 +79,12 @@ h3 a:hover{
 .half-item {
     grid-column:span 12 !important;
   }
+  .third-item {
+    grid-column:span 12 !important;
+  }
+  .two-third-item {
+    grid-column:span 12 !important;
+  }
  .lg-text-container {
     padding-left: 1em;
     padding-right: 1em;
@@ -425,6 +431,10 @@ img.right{
   .third-item {
     grid-column: span 4;
   }
+    /* You can add more size classes as needed */
+   .two-third-item {
+        grid-column: span 8;
+      }
   /* Ensure images fill their container */
   .gallery img {
     width: 100%;
