@@ -70,7 +70,20 @@ h3 a:hover{
    margin-top:15px;
 
  }
-
+ .gallery {
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top:15px;
+ 
+  }
+.half-item {
+    grid-column:span 12 !important;
+  }
+ .lg-text-container {
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top:15px;
+}
  .chart-container {
     padding-left: 1em;
     padding-right: 1em;
@@ -320,6 +333,12 @@ card-image a:hover{
     margin: 0 auto;
     margin-top:30px;
 }
+.gallery-container {
+    max-width: 940px;
+    margin: 0 auto;
+    margin-top:30px;
+    display: flex;
+}
 .lg-text-container {
     max-width: 800px;
     margin: 0 auto;
@@ -381,6 +400,41 @@ img.right{
     border-color: #000;
     border-radius: 5px;
 }
+/* Parent container as a flexbox */
+.gallery {
+    display: grid;
+    grid-gap: 10px; /* Optional: Adjust spacing between items */
+    max-width:840px;
+    margin: 0 auto;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .caption {
+    padding: 10px;
+    text-align: center;
+    /* font-size: 0.9em; */
+  }
+  /* Full width item: spans 100% of the container */
+  .full-item {
+    grid-column: span 12;
+  }
+  /* Half width item: spans about 50% (adjust gap considerations) */
+  .half-item {
+    grid-column: span 6;
+  }
+  /* You can add more size classes as needed */
+  .third-item {
+    grid-column: span 4;
+  }
+  /* Ensure images fill their container */
+  .gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    border-radius: 5px;
+  }
 /* .footer{
     padding-top:60px;
     padding-left:30px;
