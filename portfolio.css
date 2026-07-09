@@ -14,7 +14,7 @@
   --tile-min: 180px;
   --accent: #2e2e2e;
   --mutedaccent: #a1340d;
-
+  --reading-width: 760px;
   /* article-only sizing */
   --article-max: 760px;
 }
@@ -215,8 +215,11 @@ footer {
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: .9rem;
+  text-align: center;
 }
-
+footer a{
+  text-decoration: underline;
+}
 /* ARTICLE PAGES
    These classes are additive and should not change your homepage layout.
 */
@@ -278,7 +281,7 @@ footer {
   float: left;
   width: 500px;
   max-width: 50%;
-  margin: .35rem 2.75rem 1.5rem 0;
+  margin: .35rem 2rem 1.5rem 0;
   padding: 0;
 }
 
@@ -395,7 +398,15 @@ footer {
 .related-work h2 {
   margin-bottom: .65rem;
 }
+.related-work .grid {
+    grid-template-columns: repeat(2, 1fr);
+}
 
+.about .copy,
+.contact .copy{
+  max-width: var(--reading-width);
+  margin-left: clamp(2rem, 8vw, 8rem);
+}
 /* Responsive */
 
 @media (max-width: 1100px) {
@@ -450,6 +461,11 @@ footer {
     width: 100%;
     max-width: none;
     margin: 1.5rem 0;
+  }
+  .about .copy,
+  .contact .copy{
+    max-width: none;
+    margin-left: 0;
   }
 }
 
