@@ -274,7 +274,7 @@ footer {
   color: var(--mutedaccent);
   margin-left: .8rem;
 }
-.article-image-left {
+.article-body figure.article-image-left {
   float: left;
   width: 500px;
   max-width: 50%;
@@ -362,6 +362,8 @@ footer {
   margin: 1.5rem 0;
 }
 
+
+
 .article-body figure img {
   border: 1px solid var(--line);
 }
@@ -443,7 +445,7 @@ footer {
     margin-right: 0;
     transform: none;
   }
-  .article-image-left {
+.article-body figure.article-image-left {
     float: none;
     width: 100%;
     max-width: none;
