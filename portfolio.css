@@ -467,6 +467,10 @@ footer a{
     max-width: none;
     margin-left: 0;
   }
+  .article-body {
+    font-size: 1.15rem;
+    line-height: 1.75;
+  }
 }
 
 @media (max-width: 360px) {
