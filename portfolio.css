@@ -47,7 +47,7 @@ img {
 .page {
   width: min(calc(100% - 1.5rem), var(--max));
   margin: 0 auto;
-  padding: 1rem 0 2rem;
+  padding: 2rem 0 2rem;
 }
 
 header {
