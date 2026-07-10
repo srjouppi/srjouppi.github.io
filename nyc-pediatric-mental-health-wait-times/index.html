@@ -200,7 +200,7 @@
 	for their child, they might have to wait close to two months to get established with a provider 
 	at an outpatient clinic.</p>
 </div>
-    <script type="text/javascript">
+  <script type="text/javascript">
             (function() {
                 // only want one resizer on the page
                 if (document.documentElement.className.indexOf("g-resizer-v3-init") > -1) return;
@@ -3706,95 +3706,206 @@
         </div>
       </section>
       <script>
-      
-        /* Scrollytelling code goes under here */
-      // annotation: #nyc-child-psychologists, #child-psychologists
-      
-  
+document.addEventListener("DOMContentLoaded", function () {
+  const scroller = scrollama();
 
+  // Set the starting graphic state
+  function resetGraphic() {
+    d3.select("#outline-keep").classed("hidden", false);
+    d3.select("#outline-remove").classed("hidden", false);
+    d3.select("#over-3mo").classed("hidden", true);
+    d3.select("#under-3mo").classed("hidden", true);
+    d3.select("#no-new").classed("hidden", true);
+    d3.select("#closed-nokids-notherapy").classed("hidden", true);
+    d3.select("#all-clinics").classed("hidden", true);
+    d3.select("#rest-clinics").classed("hidden", true);
+    d3.select("#surveyed-clinics").classed("hidden", true);
+  }
 
-      d3.select('#outline-keep').classed('hidden',false)
-      d3.select('#outline-remove').classed('hidden',false)
-      d3.select('#over-3mo').classed('hidden',true)
-      d3.select('#under-3mo').classed('hidden',true)
-      d3.select('#no-new').classed('hidden',true)
-      d3.select('#closed-nokids-notherapy').classed('hidden',true)
-      d3.select('#all-clinics').classed('hidden',true)
-      d3.select('#rest-clinics').classed('hidden',true)
-      d3.select('#surveyed-clinics').classed('hidden',true)
+  resetGraphic();
 
-      d3.select("#step-zero").on('stepin',function(e){
-          console.log("Got to step zero")
-            d3.select('#outline-keep').classed('hidden',false)
-            d3.select('#outline-remove').classed('hidden',false)
-            d3.select('#over-3mo').classed('hidden',true)
-            d3.select('#under-3mo').classed('hidden',true)
-            d3.select('#no-new').classed('hidden',true)
-            d3.select('#closed-nokids-notherapy').classed('hidden',true)
-            d3.select('#all-clinics').classed('hidden',false)
-            d3.select('#rest-clinics').classed('hidden',true)
-            d3.select('#surveyed-clinics').classed('hidden',true)
+  function handleStepEnter(response) {
+    const step = response.element;
+    const stepId = step.id;
 
-      })   
-      d3.select("#step-one").on('stepin',function(e){
-          console.log("Got to step one")
-          d3.select('#outline-keep').classed('hidden',false)
-            d3.select('#outline-remove').classed('hidden',false)
-            d3.select('#over-3mo').classed('hidden',true)
-            d3.select('#under-3mo').classed('hidden',true)
-            d3.select('#no-new').classed('hidden',true)
-            d3.select('#closed-nokids-notherapy').classed('hidden',true)
-            d3.select('#all-clinics').classed('hidden',true)
-            d3.select('#rest-clinics').classed('hidden',true)
-            d3.select('#surveyed-clinics').classed('hidden',false)
-      }) 
-      d3.select("#step-two").on('stepin',function(e){
-          console.log("Got to step one")
-          d3.select('#outline-keep').classed('hidden',false)
-            d3.select('#outline-remove').classed('hidden',false)
-            d3.select('#over-3mo').classed('hidden',true)
-            d3.select('#under-3mo').classed('hidden',true)
-            d3.select('#no-new').classed('hidden',false)
-            d3.select('#closed-nokids-notherapy').classed('hidden',true)
-            d3.select('#all-clinics').classed('hidden',true)
-            d3.select('#rest-clinics').classed('hidden',true)
-            d3.select('#surveyed-clinics').classed('hidden',false)
-      })   
-      d3.select("#step-three").on('stepin',function(e){
-          console.log("Got to step two")
-          d3.select('#outline-keep').classed('hidden',false)
-            d3.select('#outline-remove').classed('hidden',false)
-            d3.select('#over-3mo').classed('hidden',true)
-            d3.select('#under-3mo').classed('hidden',true)
-            d3.select('#no-new').classed('hidden',false)
-            d3.select('#closed-nokids-notherapy').classed('hidden',false)
-            d3.select('#all-clinics').classed('hidden',true)
-            d3.select('#rest-clinics').classed('hidden',true)
-            d3.select('#surveyed-clinics').classed('hidden',false)
-      })   
-      d3.select("#step-four").on('stepin',function(e){
-          console.log("Got to step two")
-          d3.select('#outline-keep').classed('hidden',false)
-            d3.select('#outline-remove').classed('hidden',false)
-            d3.select('#over-3mo').classed('hidden',false)
-            d3.select('#under-3mo').classed('hidden',true)
-            d3.select('#no-new').classed('hidden',false)
-            d3.select('#closed-nokids-notherapy').classed('hidden',false)
-            d3.select('#all-clinics').classed('hidden',true)
-            d3.select('#rest-clinics').classed('hidden',true)
-            d3.select('#surveyed-clinics').classed('hidden',false)
-      })
-      d3.select("#step-five").on('stepin',function(e){
-          console.log("Got to step two")
-          d3.select('#outline-remove').classed('hidden',true)
-          d3.select('#over-3mo').classed('hidden',true)
-          d3.select('#closed-nokids-notherapy').classed('hidden',true)
-          d3.select('#no-new').classed('hidden',true)
-          d3.select('#surveyed-clinics').classed('hidden',true)
-          d3.select('#rest-clinics').classed('hidden',false)
-          d3.select('#under-3mo').classed('hidden',false)
+    // Remove active state from all steps
+    document.querySelectorAll("#scrolly .step").forEach(function (el) {
+      el.classList.remove("is-active");
+    });
 
-      })  
+    step.classList.add("is-active");
+
+    console.log("Entered:", stepId);
+
+    if (stepId === "step-zero") {
+      d3.select("#outline-keep").classed("hidden", false);
+      d3.select("#outline-remove").classed("hidden", false);
+      d3.select("#over-3mo").classed("hidden", true);
+      d3.select("#under-3mo").classed("hidden", true);
+      d3.select("#no-new").classed("hidden", true);
+      d3.select("#closed-nokids-notherapy").classed("hidden", true);
+      d3.select("#all-clinics").classed("hidden", false);
+      d3.select("#rest-clinics").classed("hidden", true);
+      d3.select("#surveyed-clinics").classed("hidden", true);
+    }
+
+    if (stepId === "step-one") {
+      d3.select("#outline-keep").classed("hidden", false);
+      d3.select("#outline-remove").classed("hidden", false);
+      d3.select("#over-3mo").classed("hidden", true);
+      d3.select("#under-3mo").classed("hidden", true);
+      d3.select("#no-new").classed("hidden", true);
+      d3.select("#closed-nokids-notherapy").classed("hidden", true);
+      d3.select("#all-clinics").classed("hidden", true);
+      d3.select("#rest-clinics").classed("hidden", true);
+      d3.select("#surveyed-clinics").classed("hidden", false);
+    }
+
+    if (stepId === "step-two") {
+      d3.select("#outline-keep").classed("hidden", false);
+      d3.select("#outline-remove").classed("hidden", false);
+      d3.select("#over-3mo").classed("hidden", true);
+      d3.select("#under-3mo").classed("hidden", true);
+      d3.select("#no-new").classed("hidden", false);
+      d3.select("#closed-nokids-notherapy").classed("hidden", true);
+      d3.select("#all-clinics").classed("hidden", true);
+      d3.select("#rest-clinics").classed("hidden", true);
+      d3.select("#surveyed-clinics").classed("hidden", false);
+    }
+
+    if (stepId === "step-three") {
+      d3.select("#outline-keep").classed("hidden", false);
+      d3.select("#outline-remove").classed("hidden", false);
+      d3.select("#over-3mo").classed("hidden", true);
+      d3.select("#under-3mo").classed("hidden", true);
+      d3.select("#no-new").classed("hidden", false);
+      d3.select("#closed-nokids-notherapy").classed("hidden", false);
+      d3.select("#all-clinics").classed("hidden", true);
+      d3.select("#rest-clinics").classed("hidden", true);
+      d3.select("#surveyed-clinics").classed("hidden", false);
+    }
+
+    if (stepId === "step-four") {
+      d3.select("#outline-keep").classed("hidden", false);
+      d3.select("#outline-remove").classed("hidden", false);
+      d3.select("#over-3mo").classed("hidden", false);
+      d3.select("#under-3mo").classed("hidden", true);
+      d3.select("#no-new").classed("hidden", false);
+      d3.select("#closed-nokids-notherapy").classed("hidden", false);
+      d3.select("#all-clinics").classed("hidden", true);
+      d3.select("#rest-clinics").classed("hidden", true);
+      d3.select("#surveyed-clinics").classed("hidden", false);
+    }
+
+    if (stepId === "step-five") {
+      d3.select("#outline-keep").classed("hidden", false);
+      d3.select("#outline-remove").classed("hidden", true);
+      d3.select("#over-3mo").classed("hidden", true);
+      d3.select("#under-3mo").classed("hidden", false);
+      d3.select("#no-new").classed("hidden", true);
+      d3.select("#closed-nokids-notherapy").classed("hidden", true);
+      d3.select("#all-clinics").classed("hidden", true);
+      d3.select("#rest-clinics").classed("hidden", false);
+      d3.select("#surveyed-clinics").classed("hidden", true);
+    }
+  }
+
+  scroller
+    .setup({
+      step: "#scrolly .scrolly-overlay .step",
+      offset: 0.6,
+      debug: false
+    })
+    .onStepEnter(handleStepEnter);
+
+  window.addEventListener("resize", function () {
+    scroller.resize();
+  });
+});
+    //     /* Scrollytelling code goes under here */
+    //   // annotation: #nyc-child-psychologists, #child-psychologists
+    //   d3.select('#outline-keep').classed('hidden',false)
+    //   d3.select('#outline-remove').classed('hidden',false)
+    //   d3.select('#over-3mo').classed('hidden',true)
+    //   d3.select('#under-3mo').classed('hidden',true)
+    //   d3.select('#no-new').classed('hidden',true)
+    //   d3.select('#closed-nokids-notherapy').classed('hidden',true)
+    //   d3.select('#all-clinics').classed('hidden',true)
+    //   d3.select('#rest-clinics').classed('hidden',true)
+    //   d3.select('#surveyed-clinics').classed('hidden',true)
+
+    //   d3.select("#step-zero").on('stepin',function(e){
+    //       console.log("Got to step zero")
+    //         d3.select('#outline-keep').classed('hidden',false)
+    //         d3.select('#outline-remove').classed('hidden',false)
+    //         d3.select('#over-3mo').classed('hidden',true)
+    //         d3.select('#under-3mo').classed('hidden',true)
+    //         d3.select('#no-new').classed('hidden',true)
+    //         d3.select('#closed-nokids-notherapy').classed('hidden',true)
+    //         d3.select('#all-clinics').classed('hidden',false)
+    //         d3.select('#rest-clinics').classed('hidden',true)
+    //         d3.select('#surveyed-clinics').classed('hidden',true)
+
+    //   })   
+    //   d3.select("#step-one").on('stepin',function(e){
+    //       console.log("Got to step one")
+    //       d3.select('#outline-keep').classed('hidden',false)
+    //         d3.select('#outline-remove').classed('hidden',false)
+    //         d3.select('#over-3mo').classed('hidden',true)
+    //         d3.select('#under-3mo').classed('hidden',true)
+    //         d3.select('#no-new').classed('hidden',true)
+    //         d3.select('#closed-nokids-notherapy').classed('hidden',true)
+    //         d3.select('#all-clinics').classed('hidden',true)
+    //         d3.select('#rest-clinics').classed('hidden',true)
+    //         d3.select('#surveyed-clinics').classed('hidden',false)
+    //   }) 
+    //   d3.select("#step-two").on('stepin',function(e){
+    //       console.log("Got to step one")
+    //       d3.select('#outline-keep').classed('hidden',false)
+    //         d3.select('#outline-remove').classed('hidden',false)
+    //         d3.select('#over-3mo').classed('hidden',true)
+    //         d3.select('#under-3mo').classed('hidden',true)
+    //         d3.select('#no-new').classed('hidden',false)
+    //         d3.select('#closed-nokids-notherapy').classed('hidden',true)
+    //         d3.select('#all-clinics').classed('hidden',true)
+    //         d3.select('#rest-clinics').classed('hidden',true)
+    //         d3.select('#surveyed-clinics').classed('hidden',false)
+    //   })   
+    //   d3.select("#step-three").on('stepin',function(e){
+    //       console.log("Got to step two")
+    //       d3.select('#outline-keep').classed('hidden',false)
+    //         d3.select('#outline-remove').classed('hidden',false)
+    //         d3.select('#over-3mo').classed('hidden',true)
+    //         d3.select('#under-3mo').classed('hidden',true)
+    //         d3.select('#no-new').classed('hidden',false)
+    //         d3.select('#closed-nokids-notherapy').classed('hidden',false)
+    //         d3.select('#all-clinics').classed('hidden',true)
+    //         d3.select('#rest-clinics').classed('hidden',true)
+    //         d3.select('#surveyed-clinics').classed('hidden',false)
+    //   })   
+    //   d3.select("#step-four").on('stepin',function(e){
+    //       console.log("Got to step two")
+    //       d3.select('#outline-keep').classed('hidden',false)
+    //         d3.select('#outline-remove').classed('hidden',false)
+    //         d3.select('#over-3mo').classed('hidden',false)
+    //         d3.select('#under-3mo').classed('hidden',true)
+    //         d3.select('#no-new').classed('hidden',false)
+    //         d3.select('#closed-nokids-notherapy').classed('hidden',false)
+    //         d3.select('#all-clinics').classed('hidden',true)
+    //         d3.select('#rest-clinics').classed('hidden',true)
+    //         d3.select('#surveyed-clinics').classed('hidden',false)
+    //   })
+    //   d3.select("#step-five").on('stepin',function(e){
+    //       console.log("Got to step two")
+    //       d3.select('#outline-remove').classed('hidden',true)
+    //       d3.select('#over-3mo').classed('hidden',true)
+    //       d3.select('#closed-nokids-notherapy').classed('hidden',true)
+    //       d3.select('#no-new').classed('hidden',true)
+    //       d3.select('#surveyed-clinics').classed('hidden',true)
+    //       d3.select('#rest-clinics').classed('hidden',false)
+    //       d3.select('#under-3mo').classed('hidden',false)
+
+    //   })  
       </script>
 
       <div class="article-body">
