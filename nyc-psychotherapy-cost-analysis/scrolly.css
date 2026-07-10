@@ -2,7 +2,8 @@
        #scrolly {
         position: relative;
         padding: 1rem;
-        width: min(1400px, calc(100vw - 2rem));
+        width: min(1400px, calc(100vw - 2rem)) !important;
+        max-width:none;
 
       }
       .scrolly-overlay {
